@@ -1,3 +1,3 @@
-# sebastianbirk.github.io
+# Description
 
-Repository has been created to reserve the name for a personal website.
+This repository has been created to reserve the repository name for a personal website.

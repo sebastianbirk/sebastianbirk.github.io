@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../data/projects';
+
+const linkLabels: Record<string, string> = {
+  code: 'Repository',
+  docs: 'Documentation',
+  paper: 'Paper',
+};
+---
+
+<BaseLayout
+  title="Software"
+  description="Open-source research software by Sebastian Birk: NicheCompass, TERRA, SQUINT, MintFlow and G2T."
+  wide
+>
+  <div class="page-header">
+    <h1>Software</h1>
+    <p>
+      The tools behind the papers. Everything here is open source and developed
+      with the Lotfollahi Lab.
+    </p>
+  </div>
+
+  <div class="projects">
+    {
+      projects.map((project) => (
+        <article class="project">
+          <div class="project__head">
+            <h2 class="project__name">{project.name}</h2>
+            {project.role && <span class="project__role">{project.role}</span>}
+          </div>
+
+          <p class="project__desc">{project.description}</p>
+
+          <ul class="project__tags">
+            {project.tags.map((tag) => (
+              <li>{tag}</li>
+            ))}
+          </ul>
+
+          <p class="project__links">
+            {Object.entries(project.links)
+              .filter(([, href]) => Boolean(href))
+              .map(([key, href]) => (
+                <a href={href}>{linkLabels[key] ?? key}</a>
+              ))}
+          </p>
+        </article>
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .projects {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .project {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.35rem 1.5rem;
+    background: var(--bg);
+    transition: border-color 0.15s ease;
+  }
+
+  .project:hover {
+    border-color: var(--border-strong);
+  }
+
+  .project__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.85rem;
+  }
+
+  .project__name {
+    font-size: 1.2rem;
+  }
+
+  .project__role {
+    font-size: 0.78rem;
+    color: var(--text-faint);
+  }
+
+  .project__desc {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 46rem;
+  }
+
+  .project__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 0.85rem;
+  }
+
+  .project__tags li {
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: var(--text-faint);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.1rem 0.45rem;
+  }
+
+  .project__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .project__links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .project__links a:hover {
+    text-decoration: underline;
+  }
+</style>

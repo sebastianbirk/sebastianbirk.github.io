@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Drafts stay out of the index in production but remain visible while
+// you are writing locally.
+const posts = (await getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const dateFormat = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<BaseLayout
+  title="Blog"
+  description="Notes on machine learning for spatial genomics, model design and research engineering."
+>
+  <div class="page-header">
+    <h1>Blog</h1>
+    <p>
+      Occasional notes on machine learning for biology, model design and the
+      engineering around research code.
+    </p>
+  </div>
+
+  {
+    posts.length === 0 ? (
+      <p class="empty">No posts yet.</p>
+    ) : (
+      <ul class="posts">
+        {posts.map((post) => (
+          <li class="post">
+            <time class="post__date" datetime={post.data.pubDate.toISOString()}>
+              {dateFormat.format(post.data.pubDate)}
+            </time>
+            <h2 class="post__title">
+              <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+              {import.meta.env.DEV && post.data.draft && (
+                <span class="post__draft">draft</span>
+              )}
+            </h2>
+            <p class="post__desc">{post.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .posts {
+    list-style: none;
+    padding: 0;
+  }
+
+  .post {
+    padding-block: 1.35rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post:last-child {
+    border-bottom: 0;
+  }
+
+  .post__date {
+    font-size: 0.8rem;
+    color: var(--text-faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .post__title {
+    font-size: 1.2rem;
+    margin-top: 0.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .post__title a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .post__title a:hover {
+    color: var(--accent);
+  }
+
+  .post__draft {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #9a3412;
+    background: #fef3c7;
+    border-radius: 3px;
+    padding: 0.1rem 0.35rem;
+  }
+
+  .post__desc {
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  .empty {
+    color: var(--text-muted);
+  }
+</style>

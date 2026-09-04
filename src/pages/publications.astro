@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+import { publicationsByYear } from '../data/publications';
+import { socials } from '../data/site';
+
+const years = publicationsByYear();
+const scholar = socials.find((s) => s.label === 'Google Scholar')?.href;
+---
+
+<BaseLayout
+  title="Publications"
+  description="Peer-reviewed papers, preprints and workshop papers by Sebastian Birk on spatial genomics, generative modeling and graph learning."
+  wide
+>
+  <div class="page-header">
+    <h1>Publications</h1>
+    <p>
+      Journal articles, preprints and workshop papers. Citation counts live on{' '}
+      {scholar ? <a href={scholar}>Google Scholar</a> : 'Google Scholar'}, which
+      stays more current than anything I would maintain by hand.
+    </p>
+  </div>
+
+  {
+    years.map(([year, pubs]) => (
+      <section class="year">
+        <h2 class="year__heading">{year}</h2>
+        <div class="year__list">
+          {pubs.map((pub) => (
+            <PublicationEntry pub={pub} />
+          ))}
+        </div>
+      </section>
+    ))
+  }
+</BaseLayout>
+
+<style>
+  .year + .year {
+    margin-top: 2.5rem;
+  }
+
+  .year__heading {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    font-variant-numeric: tabular-nums;
+  }
+</style>

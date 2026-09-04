@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    rect { fill: #0f6a60; }
+    text { fill: #fdfdfb; }
+    @media (prefers-color-scheme: dark) {
+      rect { fill: #5fbfb0; }
+      text { fill: #0e1113; }
+    }
+  </style>
+  <rect width="64" height="64" rx="14"/>
+  <text x="32" y="45" font-family="Georgia, serif" font-size="36" font-weight="600"
+        text-anchor="middle">SB</text>
+</svg>

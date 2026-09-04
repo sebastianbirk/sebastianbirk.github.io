@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(ruby --version)",
+      "WebFetch(domain:sebastianbirk.org)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:scholar.google.com)"
+    ]
+  }
+}

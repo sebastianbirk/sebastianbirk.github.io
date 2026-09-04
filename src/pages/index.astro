@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { site } from '../data/site';
+import { publicationsByDate } from '../data/publications';
+import { newsByDate } from '../data/news';
+
+const selected = publicationsByDate.filter((p) => p.selected);
+const recentNews = newsByDate.slice(0, 5);
+
+const interests = [
+  'Spatial genomics',
+  'Single-cell genomics',
+  'Generative modeling',
+  'Graph learning',
+  'Computational biology',
+];
+
+const dateFormat = new Intl.DateTimeFormat('en-GB', {
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<BaseLayout>
+  <section class="hero">
+    <h1>{site.name}</h1>
+    <p class="hero__role">{site.role} · {site.affiliation}</p>
+
+    <div class="hero__bio stack">
+      <p class="lede">
+        I build machine learning methods that read the spatial organisation of
+        human tissue — where cells sit, which neighbourhoods they form, and what
+        those neighbourhoods do.
+      </p>
+      <p>
+        I work in the <a href="https://lotfollahi.com">Lotfollahi Lab</a> at the
+        Wellcome Sanger Institute on generative models and graph learning for
+        spatial and single-cell genomics, in a PhD with the Theis Lab at the
+        Technical University of Munich. That work produced{' '}
+        <a href="/software/">NicheCompass</a>, a method for characterising cell
+        niches that keeps its learned representations interpretable rather than
+        trading interpretability away for accuracy.
+      </p>
+      <p>
+        More recently I have been working on foundation models for tissue —
+        TERRA, discrete tokenization of cells and niches, and generative
+        reconstruction of tissue from expression alone.
+      </p>
+    </div>
+
+    <ul class="hero__interests">
+      {interests.map((item) => <li>{item}</li>)}
+    </ul>
+
+    <div class="hero__links">
+      <SocialLinks labelled />
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section__label">
+      Selected publications
+      <a href="/publications/">All publications →</a>
+    </h2>
+    {selected.map((pub) => <PublicationEntry pub={pub} />)}
+  </section>
+
+  <section class="section">
+    <h2 class="section__label">News</h2>
+    <ul class="news">
+      {
+        recentNews.map((item) => (
+          <li class="news__item">
+            <time class="news__date" datetime={item.date}>
+              {dateFormat.format(new Date(item.date))}
+            </time>
+            <span class="news__text">
+              {item.href ? <a href={item.href}>{item.text}</a> : item.text}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero h1 {
+    margin-bottom: 0.3rem;
+  }
+
+  .hero__role {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__bio {
+    max-width: 40rem;
+  }
+
+  .hero__interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+  }
+
+  .hero__interests li {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.15rem 0.7rem;
+  }
+
+  .hero__links {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .news {
+    list-style: none;
+    padding: 0;
+  }
+
+  .news__item {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0.75rem;
+    padding-block: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .news__item:last-child {
+    border-bottom: 0;
+  }
+
+  .news__date {
+    font-size: 0.8rem;
+    color: var(--text-faint);
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.15rem;
+  }
+
+  .news__text {
+    font-size: 0.925rem;
+  }
+
+  .news__text a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-subtle);
+  }
+
+  .news__text a:hover {
+    border-bottom-color: currentColor;
+  }
+
+  @media (max-width: 30rem) {
+    .news__item {
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
+    }
+  }
+</style>

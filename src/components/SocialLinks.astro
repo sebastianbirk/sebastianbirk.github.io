@@ -1,0 +1,63 @@
+---
+import { socials } from '../data/site';
+
+interface Props {
+  /** Adds visible labels next to the icons. */
+  labelled?: boolean;
+}
+
+const { labelled = false } = Astro.props;
+---
+
+<ul class:list={['socials', labelled && 'socials--labelled']}>
+  {
+    socials.map((s) => (
+      <li>
+        <a
+          href={s.href}
+          aria-label={s.label}
+          rel={s.href.startsWith('http') ? 'me noopener' : undefined}
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d={s.icon} />
+          </svg>
+          {labelled && <span>{s.label}</span>}
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .socials a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .socials a:hover {
+    color: var(--accent);
+  }
+
+  .socials svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: currentColor;
+  }
+
+  .socials--labelled {
+    gap: 0.5rem 1.25rem;
+  }
+</style>

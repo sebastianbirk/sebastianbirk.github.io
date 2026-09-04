@@ -1,0 +1,109 @@
+---
+import { nav, site } from '../data/site';
+import ThemeToggle from './ThemeToggle.astro';
+
+const path = Astro.url.pathname;
+
+/** Home matches only itself; every other item matches its subtree. */
+function isCurrent(href: string): boolean {
+  if (href === '/') return path === '/';
+  return path === href || path.startsWith(href);
+}
+---
+
+<header class="site-header">
+  <div class="wrap wrap--wide site-header__inner">
+    <a class="site-header__name" href="/">{site.name}</a>
+
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        {
+          nav
+            .filter((item) => item.href !== '/')
+            .map((item) => (
+              <li>
+                <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+                  {item.label}
+                </a>
+              </li>
+            ))
+        }
+      </ul>
+    </nav>
+
+    <ThemeToggle />
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    min-height: 3.75rem;
+  }
+
+  .site-header__name {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .site-header__name:hover {
+    color: var(--accent);
+  }
+
+  .site-nav {
+    margin-left: auto;
+  }
+
+  .site-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.15rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .site-nav a {
+    font-size: 0.925rem;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .site-nav a:hover {
+    color: var(--text);
+  }
+
+  .site-nav a[aria-current='page'] {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  @media (max-width: 32rem) {
+    .site-header__inner {
+      flex-wrap: wrap;
+      padding-block: 0.75rem;
+      gap: 0.5rem 1rem;
+    }
+
+    .site-nav {
+      order: 3;
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .site-nav ul {
+      gap: 1rem;
+    }
+  }
+</style>

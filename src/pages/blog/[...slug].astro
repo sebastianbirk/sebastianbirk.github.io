@@ -1,0 +1,150 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const dateFormat = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<BaseLayout title={post.data.title} description={post.data.description} ogType="article">
+  <article class="prose">
+    <header class="prose__header">
+      <h1>{post.data.title}</h1>
+      <p class="prose__meta">
+        <time datetime={post.data.pubDate.toISOString()}>
+          {dateFormat.format(post.data.pubDate)}
+        </time>
+        {
+          post.data.updatedDate && (
+            <span class="prose__updated">
+              updated {dateFormat.format(post.data.updatedDate)}
+            </span>
+          )
+        }
+      </p>
+      {
+        post.data.tags.length > 0 && (
+          <ul class="prose__tags">
+            {post.data.tags.map((tag) => (
+              <li>{tag}</li>
+            ))}
+          </ul>
+        )
+      }
+    </header>
+
+    <div class="prose__body">
+      <Content />
+    </div>
+
+    <footer class="prose__footer">
+      <a href="/blog/">← All posts</a>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .prose__header {
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .prose__meta {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--text-faint);
+  }
+
+  .prose__updated::before {
+    content: '·';
+    margin-inline: 0.4rem;
+  }
+
+  .prose__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 0.75rem;
+  }
+
+  .prose__tags li {
+    font-size: 0.72rem;
+    color: var(--text-faint);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.1rem 0.45rem;
+  }
+
+  .prose__body :global(> * + *) {
+    margin-top: 1.15rem;
+  }
+
+  .prose__body :global(h2) {
+    margin-top: 2.25rem;
+  }
+
+  .prose__body :global(h3) {
+    margin-top: 1.75rem;
+  }
+
+  .prose__body :global(ul),
+  .prose__body :global(ol) {
+    padding-left: 1.3rem;
+  }
+
+  .prose__body :global(li + li) {
+    margin-top: 0.3rem;
+  }
+
+  .prose__body :global(img) {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+
+  .prose__body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.925rem;
+  }
+
+  .prose__body :global(th),
+  .prose__body :global(td) {
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.7rem;
+    text-align: left;
+  }
+
+  .prose__footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+
+  .prose__footer a {
+    text-decoration: none;
+  }
+
+  .prose__footer a:hover {
+    text-decoration: underline;
+  }
+</style>

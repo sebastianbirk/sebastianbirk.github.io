@@ -11,9 +11,11 @@ export interface Project {
   /** Surface on the homepage's Software block. */
   selected?: boolean;
   /**
-   * PyPI package name, when the project publishes one under this lab's
-   * authorship. Declared explicitly: `terra` and `squint` on PyPI are
-   * unrelated packages by other authors.
+   * PyPI package name, where the project publishes one under this lab's
+   * authorship. Recorded because the names are NOT interchangeable with the
+   * repository names: `terra` on PyPI is marqh/terra and `squint` is Shawn
+   * Brown's, so anything keying off these must use this field, never the
+   * project or repo name.
    */
   pypi?: string;
   tags: string[];

@@ -34,7 +34,7 @@ export const cvSections: CvSection[] = [
     heading: 'Experience',
     entries: [
       {
-        period: '2026 – present',
+        period: 'Oct 2026 – present',
         title: 'Principal Research Scientist',
         organization: 'Wellcome Sanger Institute',
         location: 'Cambridge, UK',
@@ -44,9 +44,8 @@ export const cvSections: CvSection[] = [
       },
       {
         period: 'Jul 2026 – present',
-        title: 'Freelance Data Science Consultant',
+        title: 'Freelance Machine Learning Consultant, Target Discovery',
         organization: 'GSK',
-        details: ['Translational data science.'],
       },
       {
         period: 'Dec 2021 – Jun 2026',

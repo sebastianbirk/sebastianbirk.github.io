@@ -13,7 +13,7 @@
 /** Author-string fragment that gets emphasised in rendered author lists. */
 export const SELF = 'S. Birk';
 
-export type PubType = 'journal' | 'preprint' | 'workshop' | 'abstract';
+export type PubType = 'journal' | 'proceedings' | 'preprint' | 'workshop' | 'abstract';
 
 export interface Publication {
   title: string;
@@ -45,7 +45,7 @@ export const publications: Publication[] = [
     authors: 'S. Birk, F. J. Theis, M. Lotfollahi',
     venue: 'Machine Learning in Computational Biology (MLCB) 2026',
     date: '2026-08-25',
-    type: 'workshop',
+    type: 'proceedings',
     links: {
       biorxiv: 'https://doi.org/10.64898/2026.08.25.746917',
       code: 'https://github.com/Lotfollahi-lab/g2t',
@@ -57,7 +57,7 @@ export const publications: Publication[] = [
     authors: 'S. Birk, A. Merchant, A. Vahidi, F. J. Theis, M. Lotfollahi',
     venue: 'Machine Learning in Computational Biology (MLCB) 2026',
     date: '2026-08-07',
-    type: 'workshop',
+    type: 'proceedings',
     links: {
       biorxiv: 'https://doi.org/10.64898/2026.08.07.743490',
       code: 'https://github.com/Lotfollahi-lab/squint',

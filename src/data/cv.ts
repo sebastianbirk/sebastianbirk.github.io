@@ -209,8 +209,7 @@ export const cvSections: CvSection[] = [
   {
     heading: 'Recognition',
     items: [
-      'ESADE Scholarship for Excellence',
-      'Best Graduate of the Year Prize (2017)',
+      'Best Graduate of the Year Prize, ESADE (2017)',
       'Physics Award, German Physical Society',
       'MLP Award for Outstanding Performance',
       'Baden-Württemberg Scholarship',

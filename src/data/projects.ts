@@ -32,7 +32,7 @@ export const projects: Project[] = [
     selected: true,
     pypi: 'nichecompass',
     description:
-      'End-to-end analysis of spatial multi-omics data. A graph variational autoencoder that learns cell-niche representations which stay interpretable, because each latent dimension corresponds to a spatial gene programme representing a known biological process — cell–cell communication, cellular metabolism or transcriptional regulation.',
+      'End-to-end analysis of spatial multi-omics data. A graph deep-learning method that models cellular communication to learn cell-niche representations which stay interpretable, because each latent dimension corresponds to a spatial gene programme representing a known biological process — cell–cell communication, cellular metabolism or transcriptional regulation.',
     role: 'First author and lead developer',
     tags: ['Python', 'Graph neural networks', 'Spatial omics', 'VAE'],
     links: {
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     name: 'TERRA',
     selected: true,
     description:
-      'A spatial transcriptomics foundation model built on a graph transformer, modelling human tissue from the single cell up to the whole section.',
+      'A self-supervised foundation model for spatial transcriptomics, built on a graph transformer with a Joint-Embedding Predictive Architecture. Pretrained on 112 million cells across 20 human tissues, it learns reusable representations at gene, cell and neighbourhood scale.',
     role: 'First author and lead developer',
     tags: ['Python', 'Foundation model', 'Graph transformer'],
     links: {
@@ -56,9 +56,9 @@ export const projects: Project[] = [
   {
     name: 'SQUINT',
     description:
-      'Discrete tokenization for spatial transcriptomics tissue sections, learning compact cell and niche codes that support in-painting of missing tissue regions.',
-    role: 'First author (DRVQ paper); co-author (SQUINT paper)',
-    tags: ['Python', 'Vector quantization', 'Representation learning'],
+      'Discrete tokenisation for spatial transcriptomics tissue sections, learning compact cell and niche codes that support in-painting of missing tissue regions.',
+    role: 'First author on the dual residual vector quantization paper; co-author on SQUINT',
+    tags: ['Python', 'Vector quantisation', 'Representation learning'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/squint',
       paper: 'https://doi.org/10.64898/2026.08.07.743490',

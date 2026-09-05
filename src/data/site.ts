@@ -8,6 +8,12 @@ export const site = {
   name: 'Sebastian Birk',
   /** Job title. Appears in the <title> tag, hero, CV header and JSON-LD. */
   role: 'Principal Research Scientist',
+  /**
+   * Set while a role is announced but not yet started. Appended to the hero and
+   * CV subtitle so they do not contradict the CV's own "From Oct 2026" row.
+   * Delete once the role begins.
+   */
+  roleFrom: 'from October 2026',
   affiliation: 'Wellcome Sanger Institute',
   /**
    * Used for the <title> on the homepage instead of the job title. Search
@@ -17,7 +23,7 @@ export const site = {
   /** Short self-description, shown as the kicker above the name. */
   tagline: '\ud83e\uddec AI \u00d7 Bio | Machine Learning Scientist & Engineer',
   description:
-    'Principal Research Scientist at the Wellcome Sanger Institute, working on generative models and graph learning for spatial and single-cell genomics.',
+    'Machine learning for spatial biology — generative models and graph learning for spatial and single-cell genomics. Principal Research Scientist at the Wellcome Sanger Institute from October 2026.',
   email: 'sb75@sanger.ac.uk',
   location: 'Cambridge, United Kingdom',
 } as const;

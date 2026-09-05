@@ -37,7 +37,10 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
         <div class="hero__identity">
           <p class="hero__kicker">{site.tagline}</p>
           <h1>{site.name}</h1>
-          <p class="hero__role">{site.role} · {site.affiliation}</p>
+          <p class="hero__role">
+            {site.role} · {site.affiliation}{' '}
+            {site.roleFrom && <span class="hero__from">({site.roleFrom})</span>}
+          </p>
         </div>
         <img
           class="hero__portrait"
@@ -52,43 +55,25 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
     <div class="hero__bio stack">
       <p class="lede">
-        I build machine learning systems that learn how human tissue is
-        organised, and make that structure usable — across spatial omics,
-        single-cell data, histology and the clinical record.
+        I build machine learning systems for spatial biology — the models, and
+        the infrastructure that makes them usable.
       </p>
       <p>
-        I completed my PhD in Computational Biology at the Technical University
-        of Munich and Helmholtz Munich, where my research focused on Generative
-        AI for Spatial Transcriptomics. My work explores how representation
-        learning, generative modelling, graph machine learning and foundation
-        models can capture the molecular and spatial organisation of cells and
-        tissues.
+        Two of those systems are mine end to end: NicheCompass, published in{' '}
+        <em>Nature Genetics</em>, and TERRA. Both are first-authored, open source
+        and in other people's hands.
       </p>
       <p>
-        A central theme of my research is learning meaningful representations of
-        biological systems across multiple scales: from genes and individual
-        cells to cellular neighbourhoods and entire tissues. It includes work on{' '}
-        <a href="/software/">NicheCompass</a>, a graph deep-learning framework
-        for characterising cellular niches in spatial omics, and{' '}
-        <a href="/software/">TERRA</a>, a foundation-model approach for learning
-        representations of human tissues from large-scale spatial transcriptomics
-        data.
+        My background is half research, half engineering: a doctorate at
+        Helmholtz Munich and the Technical University of Munich, and seven years
+        in data science consulting — the last five building production ML
+        platforms on Azure and Databricks for pharma, latterly alongside the PhD.
+        I still consult. I care about work that survives contact with real data
+        and real users.
       </p>
       <p>
-        My background combines ML research with hands-on software and data
-        engineering. Before and alongside my academic work I spent more than five
-        years in data science consulting, and I still consult for pharma —
-        building production-oriented solutions across machine learning, computer
-        vision, NLP, optimisation, graph learning and cloud platforms.
-      </p>
-      <p>
-        What motivates me most is building AI systems that move beyond prediction
-        towards learning useful representations of biological organisation — and
-        ultimately helping us understand, model and engineer biology.
-      </p>
-      <p>
-        Always happy to connect with researchers, engineers, founders and teams
-        working at the intersection of AI and biology.
+        Always happy to hear from people working at the intersection of AI and
+        biology.
       </p>
     </div>
 
@@ -104,9 +89,9 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
   <section class="now">
     <p class="now__label">Currently</p>
     <p class="now__text">
-      Right now I am focused on agentic systems for spatial genomics — bringing
-      histology, spatial and single-cell omics, clinical data and knowledge
-      graphs into a single multimodal analysis loop.
+      Agentic systems for spatial genomics — bringing histology, spatial and
+      single-cell omics, clinical data and knowledge graphs into a single
+      multimodal analysis loop.
     </p>
   </section>
 
@@ -221,6 +206,10 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
   .hero__role {
     color: var(--text-muted);
     font-size: 1rem;
+  }
+
+  .hero__from {
+    color: var(--text-faint);
   }
 
   .hero__bio {

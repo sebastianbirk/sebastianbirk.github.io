@@ -14,12 +14,12 @@ export interface NewsItem {
 export const news: NewsItem[] = [
   {
     date: '2026-08-25',
-    text: 'New preprint: G2T reconstructs tissue from gene expression with embedding-distance flow matching.',
+    text: 'G2T: reconstructing tissue from gene expression with embedding-distance flow matching.',
     href: 'https://doi.org/10.64898/2026.08.25.746917',
   },
   {
     date: '2026-08-07',
-    text: 'New preprint on learning discrete cell and niche codes with dual residual vector quantization.',
+    text: 'Learning discrete cell and niche codes with dual residual vector quantization.',
     href: 'https://doi.org/10.64898/2026.08.07.743490',
   },
   {

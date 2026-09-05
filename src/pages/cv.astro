@@ -35,7 +35,10 @@ const summaryText =
 >
   <div class="page-header">
     <h1>Curriculum vitae</h1>
-    <p>{site.role} · {site.affiliation} · {site.location}</p>
+    <p>
+      {site.role} · {site.affiliation} · {site.location}{' '}
+      {site.roleFrom && <span class="cv__from">({site.roleFrom})</span>}
+    </p>
     {
       cvPdf && (
         <p class="cv__download">
@@ -139,6 +142,10 @@ const summaryText =
 </BaseLayout>
 
 <style>
+  .cv__from {
+    color: var(--text-faint);
+  }
+
   .cv__download {
     margin-top: 1rem;
   }

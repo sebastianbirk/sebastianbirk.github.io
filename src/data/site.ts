@@ -10,7 +10,7 @@ export const site = {
   role: 'Principal Research Scientist',
   affiliation: 'Wellcome Sanger Institute',
   /** Short self-description, shown as the kicker above the name. */
-  tagline: 'AI \u00d7 Bio | Machine Learning Scientist & Engineer',
+  tagline: '\ud83e\uddec AI \u00d7 Bio | Machine Learning Scientist & Engineer',
   description:
     'Principal Research Scientist at the Wellcome Sanger Institute, working on generative models and graph learning for spatial and single-cell genomics.',
   email: 'sb75@sanger.ac.uk',

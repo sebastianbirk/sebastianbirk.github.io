@@ -10,11 +10,11 @@ const selected = publicationsByDate.filter((p) => p.selected);
 const recentNews = newsByDate.slice(0, 5);
 
 const interests = [
-  'Spatial genomics',
-  'Single-cell genomics',
-  'Generative modelling',
-  'Graph learning',
-  'Computational biology',
+  '🧬 Generative & foundation models for biology',
+  '🔬 Spatial transcriptomics & single-cell genomics',
+  '🧠 Representation learning & self-supervised learning',
+  '🕸️ Graph machine learning',
+  '⚙️ Scalable ML systems & scientific software',
 ];
 
 const dateFormat = new Intl.DateTimeFormat('en-GB', {
@@ -46,21 +46,43 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
     <div class="hero__bio stack">
       <p class="lede">
-        I build machine learning methods that read the spatial organisation of
-        human tissue — where cells sit, which neighbourhoods they form, and what
-        those neighbourhoods do.
+        I work at the intersection of artificial intelligence, computational
+        biology and genomics, developing machine learning methods that help us
+        understand complex biological systems.
       </p>
       <p>
-        I work in the <a href="https://lotfollahi.com">Lotfollahi Lab</a> at the
-        Wellcome Sanger Institute. My PhD at Helmholtz Munich produced{' '}
-        <a href="/software/">NicheCompass</a> (<em>Nature Genetics</em>, 2025).
-        Since then I have worked on foundation models for tissue: TERRA, discrete
-        cell and niche codes, and generative reconstruction from expression alone.
+        I completed my PhD in Computational Biology at the Technical University
+        of Munich and Helmholtz Munich, where my research focused on Generative
+        AI for Spatial Transcriptomics. My work explores how representation
+        learning, generative modelling, graph machine learning and foundation
+        models can capture the molecular and spatial organisation of cells and
+        tissues.
       </p>
       <p>
-        I came to research from industry and still consult there — currently on
-        machine learning for target discovery at GSK, after several years running
-        data science delivery at Avanade.
+        A central theme of my research is learning meaningful representations of
+        biological systems across multiple scales: from genes and individual
+        cells to cellular neighbourhoods and entire tissues. It includes work on{' '}
+        <a href="/software/">NicheCompass</a>, a graph deep-learning framework
+        for characterising cellular niches in spatial omics, and{' '}
+        <a href="/software/">TERRA</a>, a foundation-model approach for learning
+        representations of human tissues from large-scale spatial transcriptomics
+        data.
+      </p>
+      <p>
+        My background combines ML research with hands-on software and data
+        engineering. Before and alongside my academic work, I spent more than
+        five years in data science consulting, building production-oriented
+        solutions across machine learning, computer vision, NLP, optimisation,
+        graph learning and cloud platforms.
+      </p>
+      <p>
+        What motivates me most is building AI systems that move beyond prediction
+        towards learning useful representations of biological organisation — and
+        ultimately helping us understand, model and engineer biology.
+      </p>
+      <p>
+        Always happy to connect with researchers, engineers, founders and teams
+        working at the intersection of AI and biology.
       </p>
     </div>
 

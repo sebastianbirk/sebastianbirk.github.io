@@ -10,6 +10,12 @@ export interface Project {
   role?: string;
   /** Surface on the homepage's Software block. */
   selected?: boolean;
+  /**
+   * PyPI package name, when the project publishes one under this lab's
+   * authorship. Declared explicitly: `terra` and `squint` on PyPI are
+   * unrelated packages by other authors.
+   */
+  pypi?: string;
   tags: string[];
   links: {
     code?: string;
@@ -22,6 +28,7 @@ export const projects: Project[] = [
   {
     name: 'NicheCompass',
     selected: true,
+    pypi: 'nichecompass',
     description:
       'End-to-end analysis of spatial multi-omics data. A graph variational autoencoder that learns cell-niche representations which stay interpretable, because each latent dimension corresponds to a spatial gene programme representing a known biological process — cell–cell communication, cellular metabolism or transcriptional regulation.',
     role: 'First author and lead developer',
@@ -58,6 +65,7 @@ export const projects: Project[] = [
   {
     name: 'MintFlow',
     selected: true,
+    pypi: 'mintflow',
     description:
       'Separates microenvironment-induced from cell-intrinsic gene expression, so that tissue microenvironments can be both mapped and reprogrammed.',
     role: 'Co-first author',

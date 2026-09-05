@@ -2,11 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { projects } from '../data/projects';
 import { fetchRepoStats, repoSlug, STAR_DISPLAY_THRESHOLD } from '../lib/github';
+import { fetchDownloadStats, DOWNLOAD_DISPLAY_THRESHOLD } from '../lib/pypi';
 
 // Resolved during the build, so the figures are current on every deploy and
 // no stale number is ever committed to the repo.
 const stats = await fetchRepoStats(
   projects.map((p) => repoSlug(p.links.code)).filter((s): s is string => Boolean(s)),
+);
+const downloads = await fetchDownloadStats(
+  projects.map((p) => p.pypi).filter((s): s is string => Boolean(s)),
 );
 
 const linkLabels: Record<string, string> = {
@@ -47,6 +51,14 @@ const linkLabels: Record<string, string> = {
                 </span>
               ) : null;
             })()}
+            {(() => {
+              const dl = project.pypi ? downloads.get(project.pypi) : undefined;
+              return dl && dl.lastMonth >= DOWNLOAD_DISPLAY_THRESHOLD ? (
+                <span class="project__downloads" title="PyPI downloads in the last 30 days">
+                  {dl.lastMonth.toLocaleString('en-GB')}/mo
+                </span>
+              ) : null;
+            })()}
           </div>
 
           <p class="project__desc">{project.description}</p>
@@ -68,9 +80,28 @@ const linkLabels: Record<string, string> = {
       ))
     }
   </div>
+
+  <section class="section consulting">
+    <h2 class="section__label">Consulting</h2>
+    <p>
+      Alongside research I take on a small number of freelance engagements with
+      pharma and biotech teams — machine learning for target discovery, spatial
+      and single-cell data infrastructure, and getting research models into
+      production. Currently working with GSK.
+    </p>
+  </section>
 </BaseLayout>
 
 <style>
+  .consulting {
+    margin-top: 3.5rem;
+    max-width: 46rem;
+  }
+
+  .consulting p {
+    color: var(--text-muted);
+  }
+
   .projects {
     display: grid;
     gap: 1.25rem;
@@ -137,6 +168,18 @@ const linkLabels: Record<string, string> = {
     align-items: center;
     gap: 0.28rem;
     margin-left: auto;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-muted);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.1rem 0.5rem;
+  }
+
+  .project__downloads {
+    display: inline-flex;
+    align-items: center;
     font-size: 0.78rem;
     font-variant-numeric: tabular-nums;
     color: var(--text-muted);

@@ -101,6 +101,15 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
     </div>
   </section>
 
+  <section class="now">
+    <p class="now__label">Currently</p>
+    <p class="now__text">
+      Right now I am focused on agentic systems for spatial genomics — bringing
+      histology, spatial and single-cell omics, clinical data and knowledge
+      graphs into a single multimodal analysis loop.
+    </p>
+  </section>
+
   <section class="section">
     <h2 class="section__label">
       Software{' '}
@@ -253,8 +262,36 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
   }
 
   /* `.section + .section` in global.css does not cover the hero. */
-  .hero + .section {
+  .hero + .section,
+  .hero + .now {
     margin-top: 3.5rem;
+  }
+
+  .now {
+    margin-top: 3.5rem;
+    padding: 1.15rem 1.35rem;
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    background: var(--accent-subtle);
+  }
+
+  .now__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .now__text {
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  /* The callout already provides the separation the section rule would add. */
+  .now + .section {
+    margin-top: 2.5rem;
   }
 
   .tools {

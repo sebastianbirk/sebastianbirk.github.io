@@ -15,17 +15,17 @@ export const news: NewsItem[] = [
   {
     date: '2026-08-25',
     text: 'New preprint: G2T reconstructs tissue from gene expression with embedding-distance flow matching.',
-    href: 'https://www.biorxiv.org/content/10.1101/2026.08.25.746917',
+    href: 'https://doi.org/10.64898/2026.08.25.746917',
   },
   {
     date: '2026-08-07',
     text: 'New preprint on learning discrete cell and niche codes with dual residual vector quantization.',
-    href: 'https://www.biorxiv.org/content/10.1101/2026.08.07.743490',
+    href: 'https://doi.org/10.64898/2026.08.07.743490',
   },
   {
     date: '2026-07-29',
     text: 'TERRA is out — a multi-scale foundation model for human tissues from spatial transcriptomics.',
-    href: 'https://www.biorxiv.org/content/10.1101/2026.07.29.741565',
+    href: 'https://doi.org/10.64898/2026.07.29.741565',
   },
   {
     date: '2026-07-01',
@@ -38,7 +38,7 @@ export const news: NewsItem[] = [
   {
     date: '2025-06-24',
     text: 'MintFlow preprint released: mapping and reprogramming human tissue microenvironments.',
-    href: 'https://www.biorxiv.org/content/10.1101/2025.06.24.661094',
+    href: 'https://doi.org/10.1101/2025.06.24.661094',
   },
   {
     date: '2025-03-18',

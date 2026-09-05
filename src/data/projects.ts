@@ -37,18 +37,18 @@ export const projects: Project[] = [
     tags: ['Python', 'Foundation model', 'Graph transformer'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/terra',
-      paper: 'https://www.biorxiv.org/content/10.1101/2026.07.29.741565',
+      paper: 'https://doi.org/10.64898/2026.07.29.741565',
     },
   },
   {
     name: 'SQUINT',
     description:
       'Discrete tokenization for spatial transcriptomics tissue sections, learning compact cell and niche codes that support in-painting of missing tissue regions.',
-    role: 'Co-author',
+    role: 'First author (DRVQ paper); co-author (SQUINT paper)',
     tags: ['Python', 'Vector quantization', 'Representation learning'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/squint',
-      paper: 'https://www.biorxiv.org/content/10.1101/2026.08.07.743490',
+      paper: 'https://doi.org/10.64898/2026.08.07.743490',
     },
   },
   {
@@ -59,7 +59,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Generative modeling', 'Spatial omics'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/mintflow',
-      paper: 'https://www.biorxiv.org/content/10.1101/2025.06.24.661094',
+      paper: 'https://doi.org/10.1101/2025.06.24.661094',
     },
   },
   {
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Flow matching', 'Graph generation'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/g2t',
-      paper: 'https://www.biorxiv.org/content/10.1101/2026.08.25.746917',
+      paper: 'https://doi.org/10.64898/2026.08.25.746917',
     },
   },
 ];

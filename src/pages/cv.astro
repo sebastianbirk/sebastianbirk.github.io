@@ -5,11 +5,26 @@ import { cvSections, cvPdf } from '../data/cv';
 import { site } from '../data/site';
 import { publicationsByDate } from '../data/publications';
 
-const counts = {
-  journal: publicationsByDate.filter((p) => p.type === 'journal').length,
-  preprint: publicationsByDate.filter((p) => p.type === 'preprint').length,
-  workshop: publicationsByDate.filter((p) => p.type === 'workshop').length,
-};
+// Derived from the publication list so the two can never drift apart.
+const plural = (n: number, one: string, many = `${one}s`) =>
+  `${n} ${n === 1 ? one : many}`;
+
+const parts = [
+  ['journal', 'journal article'],
+  ['preprint', 'preprint'],
+  ['workshop', 'workshop paper'],
+  ['abstract', 'conference abstract'],
+] as const;
+
+const summary = parts
+  .map(([type, noun]) => [publicationsByDate.filter((p) => p.type === type).length, noun] as const)
+  .filter(([n]) => n > 0)
+  .map(([n, noun]) => plural(n, noun));
+
+const summaryText =
+  summary.length > 1
+    ? `${summary.slice(0, -1).join(', ')} and ${summary[summary.length - 1]}`
+    : (summary[0] ?? 'none listed');
 ---
 
 <BaseLayout
@@ -65,9 +80,7 @@ const counts = {
       <a href="/publications/">Full list →</a>
     </h2>
     <p class="cv-summary">
-      {counts.journal} journal articles, {counts.preprint} preprints and {
-        counts.workshop
-      } workshop papers, including first-authored work in <em>Nature Genetics</em>.
+      {summaryText}, including first-authored work in <em>Nature Genetics</em>.
     </p>
   </section>
 

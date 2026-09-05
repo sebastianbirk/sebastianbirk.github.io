@@ -12,6 +12,8 @@ interface Props {
   wide?: boolean;
   /** Emitted as og:type; use "article" for blog posts. */
   ogType?: 'website' | 'article';
+  /** Keep the page out of search results and drop its canonical claim. */
+  noindex?: boolean;
 }
 
 const {
@@ -19,6 +21,7 @@ const {
   description = site.description,
   wide = false,
   ogType = 'website',
+  noindex = false,
 } = Astro.props;
 
 const pageTitle = title ? `${title} · ${site.name}` : `${site.name} · ${site.role}`;
@@ -43,7 +46,8 @@ const personSchema = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="canonical" href={canonical.href} />
+    {noindex && <meta name="robots" content="noindex" />}
+    {!noindex && <link rel="canonical" href={canonical.href} />}
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -58,7 +62,7 @@ const personSchema = {
     <meta property="og:type" content={ogType} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical.href} />
+    {!noindex && <meta property="og:url" content={canonical.href} />}
     <meta property="og:site_name" content={site.name} />
     <meta name="twitter:card" content="summary" />
 

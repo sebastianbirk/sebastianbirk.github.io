@@ -13,7 +13,7 @@
 /** Author-string fragment that gets emphasised in rendered author lists. */
 export const SELF = 'S. Birk';
 
-export type PubType = 'journal' | 'preprint' | 'workshop';
+export type PubType = 'journal' | 'preprint' | 'workshop' | 'abstract';
 
 export interface Publication {
   title: string;
@@ -47,7 +47,7 @@ export const publications: Publication[] = [
     date: '2026-08-25',
     type: 'preprint',
     links: {
-      biorxiv: 'https://www.biorxiv.org/content/10.1101/2026.08.25.746917',
+      biorxiv: 'https://doi.org/10.64898/2026.08.25.746917',
       code: 'https://github.com/Lotfollahi-lab/g2t',
     },
   },
@@ -59,7 +59,7 @@ export const publications: Publication[] = [
     date: '2026-08-07',
     type: 'preprint',
     links: {
-      biorxiv: 'https://www.biorxiv.org/content/10.1101/2026.08.07.743490',
+      biorxiv: 'https://doi.org/10.64898/2026.08.07.743490',
       code: 'https://github.com/Lotfollahi-lab/squint',
     },
   },
@@ -75,7 +75,7 @@ export const publications: Publication[] = [
     summary:
       'A graph-transformer foundation model that reads tissue structure from spatial transcriptomics across scales, from single cells to whole tissues.',
     links: {
-      biorxiv: 'https://www.biorxiv.org/content/10.1101/2026.07.29.741565',
+      biorxiv: 'https://doi.org/10.64898/2026.07.29.741565',
       code: 'https://github.com/Lotfollahi-lab/terra',
     },
   },
@@ -91,9 +91,14 @@ export const publications: Publication[] = [
     title: 'Hidden immune memory niches in inflammatory skin diseases',
     authors:
       'L. Steele, A. Foster, K. Roberts, C. Admane, S. Birk, P. Mazin, A. Akbarnejad, et al.',
-    venue: 'British Journal of Dermatology 195(1)',
+    venue:
+      'British Journal of Dermatology 195(Suppl. 1) — BAD Annual Meeting abstract P29',
     date: '2026-06-01',
-    type: 'journal',
+    type: 'abstract',
+    links: {
+      doi: 'https://doi.org/10.1093/bjd/ljag151.068',
+      biorxiv: 'https://doi.org/10.64898/2026.03.20.713219',
+    },
   },
   {
     title: 'SQUINT: Spatial Quantization for Understanding and IN-painting Tissues',
@@ -108,9 +113,9 @@ export const publications: Publication[] = [
   },
   {
     title:
-      'Sigmma: Hierarchical graph-based multi-scale multi-modal contrastive alignment of histopathology image and spatial transcriptome',
+      'SIGMMA: Hierarchical Graph-Based Multi-Scale Multi-modal Contrastive Alignment of Histopathology Image and Spatial Transcriptome',
     authors:
-      'D. Jeong, A. Vahidi, C. Ramírez-Suástegui, M. Moullet, K. Ly, M. V. Sanian, et al.',
+      'D. Jeong, A. Vahidi, C. Ramírez-Suástegui, M. Moullet, K. Ly, M. V. Sanian, S. Birk, Y. Chang, A. Boxall, D. Jafree, L. Steele, V. Baskar MS, M. Haniffa, M. Lotfollahi',
     venue: 'arXiv',
     date: '2025-11-19',
     type: 'preprint',
@@ -129,7 +134,7 @@ export const publications: Publication[] = [
     summary:
       'Disentangles the gene expression a cell owes to its microenvironment from what is intrinsic to it, making tissue niches something you can steer rather than only observe.',
     links: {
-      biorxiv: 'https://www.biorxiv.org/content/10.1101/2025.06.24.661094',
+      biorxiv: 'https://doi.org/10.1101/2025.06.24.661094',
       code: 'https://github.com/Lotfollahi-lab/mintflow',
     },
   },

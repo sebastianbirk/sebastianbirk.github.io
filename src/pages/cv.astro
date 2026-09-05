@@ -5,8 +5,6 @@ import { cvSections, cvPdf } from '../data/cv';
 import { site } from '../data/site';
 import { publicationsByDate } from '../data/publications';
 
-const isDev = import.meta.env.DEV;
-
 const counts = {
   journal: publicationsByDate.filter((p) => p.type === 'journal').length,
   preprint: publicationsByDate.filter((p) => p.type === 'preprint').length,
@@ -39,12 +37,9 @@ const counts = {
         <ol class="cv-list">
           {section.entries.map((entry) => (
             <li class="cv-entry">
-              <div class="cv-entry__period">{entry.period}</div>
+              <div class="cv-entry__period">{entry.period ?? ''}</div>
               <div class="cv-entry__body">
-                <h3 class="cv-entry__title">
-                  {entry.title}
-                  {isDev && entry.verify && <span class="cv-entry__flag">unverified</span>}
-                </h3>
+                <h3 class="cv-entry__title">{entry.title}</h3>
                 <p class="cv-entry__org">
                   {entry.organization}
                   {entry.location && <span class="cv-entry__loc">{entry.location}</span>}

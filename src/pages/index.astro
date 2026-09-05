@@ -26,6 +26,7 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
 <BaseLayout>
   <section class="hero">
+    <p class="hero__kicker">{site.tagline}</p>
     <h1>{site.name}</h1>
     <p class="hero__role">{site.role} · {site.affiliation}</p>
 
@@ -38,8 +39,8 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
       <p>
         I work in the <a href="https://lotfollahi.com">Lotfollahi Lab</a> at the
         Wellcome Sanger Institute on generative models and graph learning for
-        spatial and single-cell genomics, in a PhD with the Theis Lab at the
-        Technical University of Munich. That work produced{' '}
+        spatial and single-cell genomics. My PhD, with the Theis Lab at the
+        Technical University of Munich, produced{' '}
         <a href="/software/">NicheCompass</a>, a method for characterising cell
         niches that keeps its learned representations interpretable rather than
         trading interpretability away for accuracy.
@@ -88,6 +89,14 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 </BaseLayout>
 
 <style>
+  .hero__kicker {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
   .hero h1 {
     margin-bottom: 0.3rem;
   }

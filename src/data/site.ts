@@ -6,21 +6,13 @@
 
 export const site = {
   name: 'Sebastian Birk',
-  /**
-   * ⚠️ CHECK THIS FIRST — it appears in the page <title>, the homepage
-   * subtitle, the CV header and the JSON-LD that search engines read.
-   *
-   * Public sources disagree, so this is set to the one that is verifiable:
-   * the Lotfollahi Lab members page lists you as "PhD Candidate"
-   * (co-supervised with Carlos Talavera-López), while your LinkedIn headline
-   * reads "Machine Learning Scientist & Engineer" and Google Scholar just
-   * says "Wellcome Sanger Institute". If the PhD is now finished, change
-   * this one line — nothing else needs editing.
-   */
-  role: 'PhD Candidate',
+  /** Job title. Appears in the <title> tag, hero, CV header and JSON-LD. */
+  role: 'Principal Research Scientist',
   affiliation: 'Wellcome Sanger Institute',
+  /** Short self-description, shown as the kicker above the name. */
+  tagline: 'AI \u00d7 Bio | Machine Learning Scientist & Engineer',
   description:
-    'Machine learning scientist working on generative models and graph learning for spatial and single-cell genomics.',
+    'Principal Research Scientist at the Wellcome Sanger Institute, working on generative models and graph learning for spatial and single-cell genomics.',
   email: 'sb75@sanger.ac.uk',
   location: 'Cambridge, United Kingdom',
 } as const;

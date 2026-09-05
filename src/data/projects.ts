@@ -33,7 +33,7 @@ export const projects: Project[] = [
     name: 'TERRA',
     description:
       'A spatial transcriptomics foundation model built on a graph transformer, modelling human tissue from the single cell up to the whole section.',
-    role: 'First author',
+    role: 'First author and lead developer',
     tags: ['Python', 'Foundation model', 'Graph transformer'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/terra',

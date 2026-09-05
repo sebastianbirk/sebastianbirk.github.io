@@ -19,8 +19,10 @@ export const site = {
 
 export const nav = [
   { href: '/', label: 'Home' },
-  { href: '/publications/', label: 'Publications' },
+  // Software leads: the tools are the most direct evidence of what gets built,
+  // and the papers below them do the credentialing.
   { href: '/software/', label: 'Software' },
+  { href: '/publications/', label: 'Publications' },
   { href: '/cv/', label: 'CV' },
   { href: '/blog/', label: 'Blog' },
 ] as const;

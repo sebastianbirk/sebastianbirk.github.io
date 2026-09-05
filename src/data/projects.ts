@@ -8,6 +8,8 @@ export interface Project {
   description: string;
   /** e.g. "First author", "Core contributor". */
   role?: string;
+  /** Surface on the homepage's Software block. */
+  selected?: boolean;
   tags: string[];
   links: {
     code?: string;
@@ -19,6 +21,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: 'NicheCompass',
+    selected: true,
     description:
       'End-to-end analysis of spatial multi-omics data. A graph variational autoencoder that learns cell-niche representations which stay interpretable, because each latent dimension corresponds to a spatial gene programme representing a known biological process — cell–cell communication, cellular metabolism or transcriptional regulation.',
     role: 'First author and lead developer',
@@ -31,6 +34,7 @@ export const projects: Project[] = [
   },
   {
     name: 'TERRA',
+    selected: true,
     description:
       'A spatial transcriptomics foundation model built on a graph transformer, modelling human tissue from the single cell up to the whole section.',
     role: 'First author and lead developer',
@@ -53,6 +57,7 @@ export const projects: Project[] = [
   },
   {
     name: 'MintFlow',
+    selected: true,
     description:
       'Separates microenvironment-induced from cell-intrinsic gene expression, so that tissue microenvironments can be both mapped and reprogrammed.',
     role: 'Co-first author',

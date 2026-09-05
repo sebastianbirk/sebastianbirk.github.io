@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PublicationEntry from '../components/PublicationEntry.astro';
 import SocialLinks from '../components/SocialLinks.astro';
-import NetworkBackdrop from '../components/NetworkBackdrop.astro';
 import { site } from '../data/site';
 import { publicationsByDate } from '../data/publications';
 import { newsByDate } from '../data/news';
@@ -25,12 +24,9 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 });
 ---
 
-<BaseLayout>
+<BaseLayout backdrop>
   <section class="hero">
     <div class="hero__panel">
-      <div class="hero__net" aria-hidden="true">
-        <NetworkBackdrop />
-      </div>
       <div class="hero__intro">
         <div class="hero__identity">
           <p class="hero__kicker">{site.tagline}</p>
@@ -55,18 +51,16 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
         those neighbourhoods do.
       </p>
       <p>
-        I work in the <a href="https://lotfollahi.com">Lotfollahi Lab</a> at the
-        Wellcome Sanger Institute on generative models and graph learning for
-        spatial and single-cell genomics. My doctoral work, with the Theis Lab at
-        the Technical University of Munich, produced{' '}
-        <a href="/software/">NicheCompass</a>, a method for characterising cell
-        niches that keeps its learned representations interpretable rather than
-        trading interpretability away for accuracy.
+        Principal Research Scientist in the{' '}
+        <a href="https://lotfollahi.com">Lotfollahi Lab</a> at the Wellcome Sanger
+        Institute. My PhD at Helmholtz Munich produced{' '}
+        <a href="/software/">NicheCompass</a> (<em>Nature Genetics</em>, 2025);
+        since then, foundation models for tissue — TERRA, discrete cell and niche
+        codes, and generative reconstruction of tissue from expression alone.
       </p>
       <p>
-        More recently I have been working on foundation models for tissue —
-        TERRA, discrete tokenization of cells and niches, and generative
-        reconstruction of tissue from expression alone.
+        Before research, I built and shipped machine learning in industry — most
+        recently as a Data &amp; AI manager at Avanade.
       </p>
     </div>
 
@@ -112,25 +106,15 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
     overflow: hidden;
     border: 1px solid var(--border);
     border-radius: 18px;
-    background: linear-gradient(135deg, var(--panel-from), var(--panel-to) 70%);
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--panel-from) 88%, transparent),
+      color-mix(in srgb, var(--panel-to) 78%, transparent) 70%
+    );
+    backdrop-filter: blur(3px);
     box-shadow: var(--shadow-sm);
     padding: 1.9rem 2rem;
     margin-bottom: 2rem;
-  }
-
-  /* Node-graph motif, faded in from the right so it never sits under text. */
-  .hero__net {
-    position: absolute;
-    inset: 0;
-    color: var(--accent);
-    opacity: 0.3;
-    pointer-events: none;
-    -webkit-mask-image: linear-gradient(to left, #000 5%, transparent 68%);
-    mask-image: linear-gradient(to left, #000 5%, transparent 68%);
-  }
-
-  :global(:root[data-theme='dark']) .hero__net {
-    opacity: 0.36;
   }
 
   .hero__intro {

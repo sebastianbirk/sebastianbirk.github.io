@@ -1,0 +1,68 @@
+---
+/**
+ * Organisation mark for a CV entry.
+ *
+ * Logos come from very different sources — some square app icons, some
+ * wordmarks, some transparent — so each sits in a uniform tile that keeps the
+ * column visually even. When no logo file exists (a couple of organisations
+ * publish nothing usable), a monogram is drawn instead, so an entry never
+ * renders a broken image.
+ */
+interface Props {
+  logo?: string;
+  organization: string;
+}
+
+const { logo, organization } = Astro.props;
+
+/** "Daimler Financial Services" -> "DF"; "Telefónica" -> "T". */
+const monogram = organization
+  .replace(/[^\p{L}\s]/gu, ' ')
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((w) => w[0]?.toUpperCase() ?? '')
+  .join('');
+---
+
+{
+  logo ? (
+    <span class="orglogo">
+      <img src={`/logos/${logo}.png`} alt="" width="128" height="128" loading="lazy" />
+    </span>
+  ) : (
+    <span class="orglogo orglogo--mono" aria-hidden="true">
+      {monogram}
+    </span>
+  )
+}
+
+<style>
+  .orglogo {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .orglogo img {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+  }
+
+  .orglogo--mono {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    /* --text-faint on --bg-subtle lands at 4.35:1, just under AA. */
+    color: var(--text-muted);
+    background: var(--bg-subtle);
+  }
+</style>

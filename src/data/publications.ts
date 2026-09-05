@@ -149,6 +149,10 @@ export const publications: Publication[] = [
       'NicheCompass — a graph deep-learning method that learns interpretable cell-niche representations from spatial omics, grounded in known cell–cell communication programs.',
     links: {
       doi: 'https://doi.org/10.1038/s41588-025-02120-6',
+      // Nature Genetics is paywalled; the preprint is the open-access route to
+      // the same work. Linked here rather than listed separately, which would
+      // double-count one paper.
+      biorxiv: 'https://doi.org/10.1101/2024.02.21.581428',
       code: 'https://github.com/Lotfollahi-lab/nichecompass',
       docs: 'https://nichecompass.readthedocs.io/',
     },

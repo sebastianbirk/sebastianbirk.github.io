@@ -1,28 +1,34 @@
 /**
- * CV data. Sourced from Sebastian's own CV, with the 2026 role changes he
- * confirmed afterwards.
+ * CV data, transcribed from Sebastian's own CV.
  *
- * Two kinds of section: dated `entries`, and flat `items` for things that do
- * not need a timeline (certifications, awards, languages).
+ * Deliberately omitted: date of birth, home address, phone number and personal
+ * email. They belong on a CV sent to a named recipient, not on a public page.
+ * Test scores (GMAT/TOEFL) are left out too — they read oddly on a research
+ * homepage.
+ *
+ * Two kinds of section: dated `entries`, and flat `items` for things that need
+ * no timeline.
  */
 
 export interface CvEntry {
-  /** e.g. "Oct 2018 – Jun 2026". Omit if genuinely unknown. */
+  /** e.g. "Oct 2018 – Oct 2019". Omit if genuinely unknown. */
   period?: string;
-  /** Job title or degree. */
   title: string;
-  /** Employer or institution. */
   organization: string;
   location?: string;
-  /** Keep each line to one idea — they read better than packed sentences. */
+  /** One idea per line — they read better than packed sentences. */
   details?: string[];
+  /**
+   * Basename of a file in `public/logos/`, without extension. When absent, a
+   * monogram tile is drawn from the organisation name instead, so an entry
+   * never renders with a broken image.
+   */
+  logo?: string;
 }
 
 export interface CvSection {
   heading: string;
-  /** Dated, detailed entries. */
   entries?: CvEntry[];
-  /** Flat list, rendered as pills. */
   items?: string[];
 }
 
@@ -38,6 +44,7 @@ export const cvSections: CvSection[] = [
         title: 'Principal Research Scientist',
         organization: 'Wellcome Sanger Institute',
         location: 'Cambridge, UK',
+        logo: 'sanger',
         details: [
           'Lotfollahi Lab — generative models and graph learning for spatial genomics.',
         ],
@@ -46,16 +53,18 @@ export const cvSections: CvSection[] = [
         period: 'Jul 2026 – present',
         title: 'Freelance Machine Learning Consultant, Target Discovery',
         organization: 'GSK',
+        logo: 'gsk',
       },
       {
         period: 'Dec 2021 – Jun 2026',
         title: 'Advanced Analytics & Data Science Manager',
         organization: 'Avanade',
         location: 'Munich, Germany',
+        logo: 'avanade',
         details: [
           'Part-time, alongside the doctorate.',
-          'Architected an Azure Databricks platform for a global pharmaceutical company, supporting production ML, MLOps and DevOps workflows.',
-          'Data science subject-matter expert across projects, advising on ML architecture and mentoring junior data scientists.',
+          'Designed the architecture for an Azure Databricks data science platform, working with data scientists to support mature MLOps and DevOps processes at one of the largest pharmaceutical companies.',
+          'Data science subject-matter expert across projects, guiding junior data scientists.',
         ],
       },
       {
@@ -63,20 +72,38 @@ export const cvSections: CvSection[] = [
         title: 'Advanced Analytics & Data Science Senior Consultant',
         organization: 'Avanade',
         location: 'Munich, Germany',
+        logo: 'avanade',
         details: [
-          'Led a team of ML engineers building a scalable Azure machine learning platform for pharma.',
-          'Initiated and led an MLOps offering across Avanade Germany, Austria and Switzerland.',
+          'Led a team of ML engineers building a scalable, robust machine learning platform in Azure for one of the largest pharmaceutical companies.',
+          'Worked with data scientists across business groups to develop and deploy production-ready deep learning models and the MLOps workflows around them.',
+          'Initiated and led the creation of an MLOps offering within Avanade ASG (Austria, Switzerland, Germany).',
         ],
       },
       {
-        period: 'Oct 2018 – Feb 2021',
-        title: 'Senior Analyst / Data Science Consultant',
+        period: 'Nov 2019 – Feb 2021',
+        title: 'Advanced Analytics & Data Science Consultant',
         organization: 'Avanade',
         location: 'Munich, Germany',
+        logo: 'avanade',
         details: [
-          'Applied machine learning across NLP, computer vision, optimisation and interpretable modelling.',
-          'Built a PySpark simulation engine on Azure Databricks to optimise a global supply-chain network.',
-          'Project lead on the thyssenkrupp ALFRED AI engagement.',
+          'Project lead on an AI project at thyssenkrupp, published by Microsoft as a customer success story.',
+          'Built a PySpark simulation engine on Azure Databricks to optimise the supply-chain network of one of the world’s largest material traders, cutting transportation and inventory costs.',
+          'Built an IoT system using computer vision to detect anomalies in car-body assembly for a Munich car manufacturer, with the model output surfaced in a Python web app.',
+          'Built a classification model predicting the correct cost account for expense bookings, using word embeddings and topic modelling.',
+          'Built an interpretable model predicting companies’ return on equity from financial data for a Swedish accounting firm.',
+          'Led a five-person proof of concept that grew into a longer-running engagement.',
+        ],
+      },
+      {
+        period: 'Oct 2018 – Oct 2019',
+        title: 'Advanced Analytics & Data Science Senior Analyst',
+        organization: 'Avanade',
+        location: 'Munich, Germany',
+        logo: 'avanade',
+        details: [
+          'Helped build a holistic data and analytics platform in Azure for one of the world’s largest material traders.',
+          'Supported an automotive company developing an IoT solution to control autonomous robots in manufacturing plants.',
+          'Ran a proof of concept for Power BI as a company-wide visualisation tool.',
         ],
       },
     ],
@@ -85,31 +112,37 @@ export const cvSections: CvSection[] = [
     heading: 'Education',
     entries: [
       {
-        period: 'Oct 2021 – 2026',
-        title: 'PhD in Computational Biology / Machine Learning',
-        organization: 'Technical University of Munich',
+        period: 'Oct 2021 – Jun 2026',
+        title: 'PhD in AI for Health / Data Science',
+        organization: 'Helmholtz Munich & Munich School for Data Science',
         location: 'Munich, Germany',
+        logo: 'helmholtz',
         details: [
-          'Thesis submitted 2026: “Unveiling cellular niches from spatial omics data with generative deep learning”.',
-          'Theis Lab (TUM / Helmholtz Munich) and Lotfollahi Lab (Wellcome Sanger Institute).',
-          'Co-supervised with Carlos Talavera-López.',
+          'Thesis: “Unveiling cellular niches from spatial omics data with generative deep learning”.',
+          'Institute of AI for Health, supervised by Mohammad Lotfollahi, Carlos Talavera-López and Bastian Rieck.',
+          'Co-affiliated with the Technical University of Munich and the Wellcome Sanger Institute.',
         ],
       },
       {
-        period: '2017 – 2018',
+        period: 'Sep 2017 – Oct 2018',
         title: 'MSc in Business Analytics',
         organization: 'ESADE Business School',
         location: 'Barcelona, Spain',
-        details: ['Best graduate of the year; ESADE Scholarship for Excellence.'],
+        logo: 'esade',
+        details: [
+          'Best graduate of the year — GPA 9.59/10, of 40 students; ESADE Scholarship for Excellence.',
+          'Master thesis: “Topic modeling of Twitter data in tourism”.',
+        ],
       },
       {
-        period: '2012 – 2016',
+        period: 'Oct 2012 – Nov 2016',
         title: 'BSc in International Business Administration',
         organization: 'University of Tübingen',
         location: 'Tübingen, Germany',
+        logo: 'tuebingen',
         details: [
-          'Focus on statistics and econometrics; best graduate of the year.',
-          'Exchange year at Fox School of Business, Temple University, Philadelphia.',
+          'Best graduate of the year — GPA 1.11, of 300 students; focus on statistics, econometrics and finance.',
+          'Exchange semester at Fox School of Business, Temple University, Philadelphia (2014–2015).',
         ],
       },
     ],
@@ -118,44 +151,59 @@ export const cvSections: CvSection[] = [
     heading: 'Earlier experience',
     entries: [
       {
-        period: '2018',
+        period: 'Apr 2018 – Aug 2018',
         title: 'Functional & Industry Analytics Intern',
         organization: 'Accenture',
         location: 'Barcelona, Spain',
+        logo: 'accenture',
+        details: [
+          'Developed a showcase IoT demo application for industrial machines.',
+          'Supported the analytics team across data science use cases.',
+        ],
       },
       {
-        period: '2018',
+        period: 'Apr 2018 – Jul 2018',
         title: 'Corporate Analytics Project',
         organization: 'Telefónica',
         location: 'Barcelona, Spain',
+        logo: 'telefonica',
+        details: ['Developed a customer-service chatbot using topic modelling.'],
       },
       {
-        period: '2017',
+        period: 'Mar 2017 – Aug 2017',
         title: 'Supply Chain Business Analyst Intern',
         organization: 'Amazon',
         location: 'Munich, Germany',
+        logo: 'amazon',
       },
       {
-        period: '2016 – 2017',
+        period: 'Aug 2016 – Feb 2017',
         title: 'Financial Analyst Intern',
         organization: 'Microsoft',
         location: 'Munich, Germany',
+        logo: 'microsoft',
       },
       {
-        period: '2016',
+        period: 'Apr 2016 – Jul 2016',
         title: 'Finance & Controlling Intern',
+        // Daimler Financial Services is now Mercedes-Benz Mobility; the star is
+        // the recognisable mark for it.
         organization: 'Daimler Financial Services',
         location: 'Madrid, Spain',
+        logo: 'daimler',
       },
     ],
   },
   {
     heading: 'Certifications',
     items: [
-      'Microsoft Certified: Azure Data Scientist',
+      'Microsoft Certified: Azure Fundamentals',
       'Microsoft Certified: Azure Data Engineer',
+      'Microsoft Certified: Azure Data Scientist',
       'Apache Spark 3.0 Certified Developer',
-      'Databricks Partner Solution Architect / Developer',
+      'Databricks Certified: Partner Solution Architect',
+      'Databricks Certified: Partner Developer',
+      'Professional Scrum Developer (PSD-I)',
     ],
   },
   {
@@ -164,8 +212,9 @@ export const cvSections: CvSection[] = [
       'ESADE Scholarship for Excellence',
       'Best Graduate of the Year — ESADE',
       'Best Graduate of the Year — University of Tübingen',
-      'Baden-Württemberg Scholarship',
+      'Physics Award, German Physical Society',
       'MLP Award for Outstanding Performance',
+      'Baden-Württemberg Scholarship',
     ],
   },
   {

@@ -89,14 +89,13 @@ export const publications: Publication[] = [
   },
   {
     title: 'Hidden immune memory niches in inflammatory skin diseases',
+    // Initials corrected against the preprint's Crossref record.
     authors:
-      'L. Steele, A. Foster, K. Roberts, C. Admane, S. Birk, P. Mazin, A. Akbarnejad, et al.',
-    venue:
-      'British Journal of Dermatology 195(Suppl. 1) — BAD Annual Meeting abstract P29',
-    date: '2026-06-01',
-    type: 'abstract',
+      'L. Steele, A. R. Foster, K. Roberts, C. Admane, S. Birk, P. V. Mazin, A. Akbarnejad, C. Tudor, et al.',
+    venue: 'bioRxiv',
+    date: '2026-03-23',
+    type: 'preprint',
     links: {
-      doi: 'https://doi.org/10.1093/bjd/ljag151.068',
       biorxiv: 'https://doi.org/10.64898/2026.03.20.713219',
     },
   },

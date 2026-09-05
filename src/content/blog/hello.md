@@ -7,8 +7,9 @@ tags: ['meta']
 
 This is the first post on the rebuilt version of my site. The old one ran on
 WordPress and had not been touched since 2021, when I was still writing about
-Azure MLOps. Since then I finished a PhD on spatial omics and moved to the
-Wellcome Sanger Institute, so the site needed to say something rather different.
+Azure MLOps. Since then my work has moved to spatial omics — a doctorate on the
+subject, and now a research role at the Wellcome Sanger Institute — so the site
+needed to say something rather different.
 
 ## What it runs on
 

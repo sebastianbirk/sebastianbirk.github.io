@@ -26,9 +26,21 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
 <BaseLayout>
   <section class="hero">
-    <p class="hero__kicker">{site.tagline}</p>
-    <h1>{site.name}</h1>
-    <p class="hero__role">{site.role} · {site.affiliation}</p>
+    <div class="hero__intro">
+      <div class="hero__identity">
+        <p class="hero__kicker">{site.tagline}</p>
+        <h1>{site.name}</h1>
+        <p class="hero__role">{site.role} · {site.affiliation}</p>
+      </div>
+      <img
+        class="hero__portrait"
+        src="/portrait.jpg"
+        width="416"
+        height="416"
+        alt={`Portrait of ${site.name}`}
+        fetchpriority="high"
+      />
+    </div>
 
     <div class="hero__bio stack">
       <p class="lede">
@@ -39,8 +51,8 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
       <p>
         I work in the <a href="https://lotfollahi.com">Lotfollahi Lab</a> at the
         Wellcome Sanger Institute on generative models and graph learning for
-        spatial and single-cell genomics. My PhD, with the Theis Lab at the
-        Technical University of Munich, produced{' '}
+        spatial and single-cell genomics. My doctoral work, with the Theis Lab at
+        the Technical University of Munich, produced{' '}
         <a href="/software/">NicheCompass</a>, a method for characterising cell
         niches that keeps its learned representations interpretable rather than
         trading interpretability away for accuracy.
@@ -89,6 +101,27 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 </BaseLayout>
 
 <style>
+  .hero__intro {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__identity {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .hero__portrait {
+    flex: 0 0 auto;
+    width: 8.25rem;
+    height: 8.25rem;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+  }
+
   .hero__kicker {
     font-size: 0.8rem;
     font-weight: 500;
@@ -104,7 +137,6 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
   .hero__role {
     color: var(--text-muted);
     font-size: 1rem;
-    margin-bottom: 1.5rem;
   }
 
   .hero__bio {
@@ -170,6 +202,19 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
   .news__text a:hover {
     border-bottom-color: currentColor;
+  }
+
+  @media (max-width: 34rem) {
+    .hero__intro {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 1.1rem;
+    }
+
+    .hero__portrait {
+      width: 6.5rem;
+      height: 6.5rem;
+    }
   }
 
   @media (max-width: 30rem) {

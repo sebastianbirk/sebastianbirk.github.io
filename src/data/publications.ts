@@ -43,9 +43,9 @@ export const publications: Publication[] = [
     title:
       'G2T: Tissue Reconstruction from Gene Expression via Embedding-Distance Flow Matching',
     authors: 'S. Birk, F. J. Theis, M. Lotfollahi',
-    venue: 'bioRxiv',
+    venue: 'Machine Learning in Computational Biology (MLCB) 2026',
     date: '2026-08-25',
-    type: 'preprint',
+    type: 'workshop',
     links: {
       biorxiv: 'https://doi.org/10.64898/2026.08.25.746917',
       code: 'https://github.com/Lotfollahi-lab/g2t',
@@ -55,9 +55,9 @@ export const publications: Publication[] = [
     title:
       'Learning Discrete Cell and Niche Codes from Spatial Transcriptomics Using Dual Residual Vector Quantization',
     authors: 'S. Birk, A. Merchant, A. Vahidi, F. J. Theis, M. Lotfollahi',
-    venue: 'bioRxiv',
+    venue: 'Machine Learning in Computational Biology (MLCB) 2026',
     date: '2026-08-07',
-    type: 'preprint',
+    type: 'workshop',
     links: {
       biorxiv: 'https://doi.org/10.64898/2026.08.07.743490',
       code: 'https://github.com/Lotfollahi-lab/squint',

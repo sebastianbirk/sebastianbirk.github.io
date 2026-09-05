@@ -64,7 +64,10 @@ const personSchema = {
     <meta property="og:description" content={description} />
     {!noindex && <meta property="og:url" content={canonical.href} />}
     <meta property="og:site_name" content={site.name} />
+    <meta property="og:image" content={new URL('/portrait.jpg', Astro.site).href} />
+    <meta property="og:image:alt" content={`Portrait of ${site.name}`} />
     <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image" content={new URL('/portrait.jpg', Astro.site).href} />
 
     <meta name="generator" content={Astro.generator} />
 

@@ -55,7 +55,7 @@ export const projects: Project[] = [
     name: 'MintFlow',
     description:
       'Separates microenvironment-induced from cell-intrinsic gene expression, so that tissue microenvironments can be both mapped and reprogrammed.',
-    role: 'Co-author',
+    role: 'Co-first author',
     tags: ['Python', 'Generative modeling', 'Spatial omics'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/mintflow',

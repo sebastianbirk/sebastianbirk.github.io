@@ -31,12 +31,28 @@ export const cvSections: CvSection[] = [
     heading: 'Experience',
     entries: [
       {
-        period: 'present',
+        period: '2026 – present',
         title: 'Principal Research Scientist',
         organization: 'Wellcome Sanger Institute',
         location: 'Cambridge, UK',
         details: [
           'Lotfollahi Lab — generative models and graph learning for spatial genomics.',
+        ],
+      },
+      {
+        period: '2026 – present',
+        title: 'Freelance Data Science Consultant',
+        organization: 'GSK',
+        details: ['Translational data science consulting.'],
+      },
+      {
+        period: '2018 – 2026',
+        title: 'Advanced Analytics & Data Science Manager',
+        organization: 'Avanade',
+        location: 'Munich, Germany',
+        details: [
+          'Data Science Consultant (2018), Senior Consultant (2021), Manager (2021–2026); part-time from Dec 2021.',
+          'Azure and Databricks ML platforms for pharma; MLOps, distributed data processing and ML team leadership.',
         ],
       },
     ],
@@ -46,13 +62,20 @@ export const cvSections: CvSection[] = [
     entries: [
       {
         period: '2021 – 2026',
-        title: 'PhD, Computational Biology / Machine Learning',
+        title: 'PhD in Computational Biology / Machine Learning (thesis submitted)',
         organization: 'Technical University of Munich',
         location: 'Munich, Germany',
         details: [
-          'Thesis: “Unveiling cellular niches from spatial omics data with generative deep learning”.',
+          'Thesis: “Unveiling cellular niches from spatial omics data with generative deep learning”, submitted 2026.',
           'Theis Lab (TUM / Helmholtz Munich) and Lotfollahi Lab (Wellcome Sanger Institute), co-supervised with Carlos Talavera-López.',
         ],
+      },
+      {
+        period: '2017 – 2018',
+        title: 'MSc, Business Analytics',
+        organization: 'ESADE Business School',
+        location: 'Barcelona, Spain',
+        details: ['Best graduate of the year; ESADE Scholarship for Excellence.'],
       },
       {
         period: '2012 – 2016',
@@ -62,31 +85,5 @@ export const cvSections: CvSection[] = [
         details: ['Best Graduate of the Year Prize.'],
       },
     ],
-  },
-];
-
-/**
- * NOT RENDERED — staging area for entries awaiting confirmation.
- *
- * Move an entry into `cvSections` above once its details are filled in.
- * Still needed:
- *   • Avanade — start and end years, and the exact final job title.
- *   • 2017–2018 Barcelona — institution name and exact degree.
- *   • The start year of the Principal Research Scientist role, so the entry
- *     above can read "2026 – present" rather than just "present".
- */
-export const pendingEntries: CvEntry[] = [
-  {
-    title: 'Data & AI Manager / Machine Learning Scientist & Engineer',
-    organization: 'Avanade',
-    location: 'Munich, Germany',
-    details: ['Azure data and AI consulting; MLOps and applied ML delivery.'],
-  },
-  {
-    period: '2017 – 2018',
-    title: 'MSc',
-    organization: '',
-    location: 'Barcelona, Spain',
-    details: ['Master thesis on topic modelling of microblogging data in tourism.'],
   },
 ];

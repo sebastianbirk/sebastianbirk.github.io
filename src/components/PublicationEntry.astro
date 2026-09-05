@@ -67,8 +67,32 @@ const links = Object.entries(pub.links ?? {}).filter(([, href]) => Boolean(href)
 
 <style>
   .pub {
-    padding-block: 1.25rem;
+    position: relative;
+    padding: 1.25rem 0 1.25rem 0.9rem;
     border-bottom: 1px solid var(--border);
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+
+  .pub::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.35rem;
+    bottom: 1.35rem;
+    width: 3px;
+    border-radius: 2px;
+    background: linear-gradient(var(--accent), var(--accent-2));
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .pub:hover::before {
+    opacity: 1;
+  }
+
+  .pub:hover .pub__title {
+    color: var(--accent);
   }
 
   .pub:last-child {
@@ -76,6 +100,7 @@ const links = Object.entries(pub.links ?? {}).filter(([, href]) => Boolean(href)
   }
 
   .pub__title {
+    transition: color 0.18s ease;
     font-family: var(--font-serif);
     font-size: 1.05rem;
     font-weight: 600;

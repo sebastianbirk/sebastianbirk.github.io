@@ -1,16 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <style>
-    .bg { fill: #0f6a60; }
-    .fg { fill: #fdfdfb; }
-    @media (prefers-color-scheme: dark) {
-      .bg { fill: #5fbfb0; }
-      .fg { fill: #0e1113; }
-    }
-  </style>
-  <rect class="bg" width="512" height="512" rx="112"/>
-  <g transform="translate(76.0,165.1) scale(0.44118) translate(-4,-204)">
-    <g class="fg" transform="translate(0,840) scale(0.1,-0.1)">
-      <path d="M1240 6260 c0 -18 -7 -20 -80 -20 -73 0 -80 -2 -80 -20 0 -17 -7 -20
+---
+/**
+ * SB monogram, carried over from the previous sebastianbirk.com site — heavy
+ * geometric letterforms with circuit nodes and traces knocked out of them.
+ * Vectorised from the original raster so it stays crisp at any size and takes
+ * its colour from `currentColor`.
+ */
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<svg
+  class={className}
+  viewBox="4 204 816 412"
+  width="816"
+  height="412"
+  fill="currentColor"
+  role="img"
+  aria-label="SB monogram"
+>
+  <g transform="translate(0,840) scale(0.1,-0.1)">
+    <path d="M1240 6260 c0 -18 -7 -20 -80 -20 -73 0 -80 -2 -80 -20 0 -17 -7 -20
 -40 -20 -33 0 -40 -3 -40 -20 0 -18 -7 -20 -60 -20 -53 0 -60 -2 -60 -20 0
 -17 -7 -20 -40 -20 -33 0 -40 -3 -40 -20 0 -13 -7 -20 -20 -20 -13 0 -20 -7
 -20 -20 0 -17 -7 -20 -40 -20 -33 0 -40 -3 -40 -20 0 -13 -7 -20 -20 -20 -13
@@ -114,7 +125,6 @@
 -13 0 -20 7 -20 20 0 13 -7 20 -20 20 -13 0 -20 7 -20 20 0 17 -7 20 -40 20
 -33 0 -40 3 -40 20 0 17 -7 20 -40 20 -33 0 -40 3 -40 20 0 17 -7 20 -40 20
 -33 0 -40 3 -40 20 0 18 -7 20 -60 20 -53 0 -60 2 -60 20 0 20 -7 20 -1360 20
--1353 0 -1360 0 -1360 -20z"/>
-    </g>
+-1353 0 -1360 0 -1360 -20z"></path>
   </g>
 </svg>

@@ -1,6 +1,7 @@
 ---
 import { nav, site } from '../data/site';
 import ThemeToggle from './ThemeToggle.astro';
+import Logo from './Logo.astro';
 
 const path = Astro.url.pathname;
 
@@ -13,7 +14,10 @@ function isCurrent(href: string): boolean {
 
 <header class="site-header">
   <div class="wrap wrap--wide site-header__inner">
-    <a class="site-header__name" href="/">{site.name}</a>
+    <a class="site-header__brand" href="/" aria-label={`${site.name} — home`}>
+      <Logo class="site-header__logo" />
+      <span class="site-header__name">{site.name}</span>
+    </a>
 
     <nav class="site-nav" aria-label="Main">
       <ul>
@@ -37,8 +41,12 @@ function isCurrent(href: string): boolean {
 
 <style>
   .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
     border-bottom: 1px solid var(--border);
-    background: var(--bg);
+    background: var(--bg-header);
+    backdrop-filter: saturate(1.5) blur(10px);
   }
 
   .site-header__inner {
@@ -48,17 +56,35 @@ function isCurrent(href: string): boolean {
     min-height: 3.75rem;
   }
 
+  .site-header__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .site-header__brand :global(svg) {
+    flex: 0 0 auto;
+    height: 1.15rem;
+    width: auto;
+    color: var(--accent);
+    transition: color 0.18s ease;
+  }
+
+  .site-header__brand:hover :global(svg) {
+    color: var(--accent-hover);
+  }
+
   .site-header__name {
     font-family: var(--font-serif);
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--text);
-    text-decoration: none;
     letter-spacing: -0.01em;
     white-space: nowrap;
   }
 
-  .site-header__name:hover {
+  .site-header__brand:hover .site-header__name {
     color: var(--accent);
   }
 
@@ -75,13 +101,33 @@ function isCurrent(href: string): boolean {
   }
 
   .site-nav a {
+    position: relative;
     font-size: 0.925rem;
     color: var(--text-muted);
     text-decoration: none;
+    padding-block: 0.15rem;
+  }
+
+  .site-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.15rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.18s ease;
   }
 
   .site-nav a:hover {
     color: var(--text);
+  }
+
+  .site-nav a:hover::after,
+  .site-nav a[aria-current='page']::after {
+    transform: scaleX(1);
   }
 
   .site-nav a[aria-current='page'] {
@@ -89,7 +135,11 @@ function isCurrent(href: string): boolean {
     font-weight: 500;
   }
 
-  @media (max-width: 32rem) {
+  @media (max-width: 34rem) {
+    .site-header {
+      position: static;
+    }
+
     .site-header__inner {
       flex-wrap: wrap;
       padding-block: 0.75rem;

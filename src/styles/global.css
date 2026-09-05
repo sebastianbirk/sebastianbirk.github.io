@@ -19,6 +19,18 @@
   --accent-subtle: #e6f1ef;
   --selection: #cfe6e1;
 
+  --accent-2: #12897c;
+  --accent-glow: rgba(15, 106, 96, 0.14);
+
+  /* Translucent veil behind the sticky header. */
+  --bg-header: rgba(253, 253, 251, 0.82);
+  /* Panel wash behind the hero. */
+  --panel-from: #eef6f4;
+  --panel-to: #fdfdfb;
+
+  --shadow-sm: 0 1px 2px rgba(22, 25, 28, 0.04), 0 2px 8px rgba(22, 25, 28, 0.04);
+  --shadow-md: 0 2px 4px rgba(22, 25, 28, 0.05), 0 12px 28px rgba(22, 25, 28, 0.08);
+
   --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
   --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia,
@@ -48,6 +60,15 @@
     --accent-hover: #85d4c6;
     --accent-subtle: #142a27;
     --selection: #1e4741;
+    --accent-2: #86e0d0;
+    --accent-glow: rgba(95, 191, 176, 0.16);
+
+    --bg-header: rgba(14, 17, 19, 0.82);
+    --panel-from: #14201f;
+    --panel-to: #0e1113;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.24);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.34), 0 12px 28px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -65,6 +86,16 @@
   --accent-hover: #85d4c6;
   --accent-subtle: #142a27;
   --selection: #1e4741;
+
+  --accent-2: #86e0d0;
+  --accent-glow: rgba(95, 191, 176, 0.16);
+
+  --bg-header: rgba(14, 17, 19, 0.82);
+  --panel-from: #14201f;
+  --panel-to: #0e1113;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.34), 0 12px 28px rgba(0, 0, 0, 0.4);
 }
 
 /* ------------------------------------------------------------------
@@ -248,6 +279,8 @@ main {
 }
 
 .section__label {
+  position: relative;
+  padding-left: 0.85rem;
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 600;
@@ -261,6 +294,17 @@ main {
   gap: 1rem;
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.5rem;
+}
+
+.section__label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  width: 3px;
+  height: 0.8rem;
+  border-radius: 2px;
+  background: linear-gradient(var(--accent), var(--accent-2));
 }
 
 .section__label a {

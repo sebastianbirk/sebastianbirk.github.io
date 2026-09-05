@@ -59,15 +59,42 @@ const linkLabels: Record<string, string> = {
   }
 
   .project {
+    position: relative;
+    overflow: hidden;
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: 12px;
     padding: 1.35rem 1.5rem;
     background: var(--bg);
-    transition: border-color 0.15s ease;
+    box-shadow: var(--shadow-sm);
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .project::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: linear-gradient(var(--accent), var(--accent-2));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.25s ease;
   }
 
   .project:hover {
     border-color: var(--border-strong);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .project:hover::before {
+    transform: scaleY(1);
+  }
+
+  .project:hover .project__name {
+    color: var(--accent);
   }
 
   .project__head {
@@ -79,6 +106,7 @@ const linkLabels: Record<string, string> = {
 
   .project__name {
     font-size: 1.2rem;
+    transition: color 0.18s ease;
   }
 
   .project__role {

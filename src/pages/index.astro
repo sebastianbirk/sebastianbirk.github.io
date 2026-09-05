@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PublicationEntry from '../components/PublicationEntry.astro';
 import SocialLinks from '../components/SocialLinks.astro';
+import NetworkBackdrop from '../components/NetworkBackdrop.astro';
 import { site } from '../data/site';
 import { publicationsByDate } from '../data/publications';
 import { newsByDate } from '../data/news';
@@ -26,20 +27,25 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
 <BaseLayout>
   <section class="hero">
-    <div class="hero__intro">
-      <div class="hero__identity">
-        <p class="hero__kicker">{site.tagline}</p>
-        <h1>{site.name}</h1>
-        <p class="hero__role">{site.role} · {site.affiliation}</p>
+    <div class="hero__panel">
+      <div class="hero__net" aria-hidden="true">
+        <NetworkBackdrop />
       </div>
-      <img
-        class="hero__portrait"
-        src="/portrait.jpg"
-        width="416"
-        height="416"
-        alt={`Portrait of ${site.name}`}
-        fetchpriority="high"
-      />
+      <div class="hero__intro">
+        <div class="hero__identity">
+          <p class="hero__kicker">{site.tagline}</p>
+          <h1>{site.name}</h1>
+          <p class="hero__role">{site.role} · {site.affiliation}</p>
+        </div>
+        <img
+          class="hero__portrait"
+          src="/portrait.jpg"
+          width="320"
+          height="320"
+          alt={`Portrait of ${site.name}`}
+          fetchpriority="high"
+        />
+      </div>
     </div>
 
     <div class="hero__bio stack">
@@ -101,11 +107,37 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 </BaseLayout>
 
 <style>
+  .hero__panel {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--panel-from), var(--panel-to) 70%);
+    box-shadow: var(--shadow-sm);
+    padding: 1.9rem 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Node-graph motif, faded in from the right so it never sits under text. */
+  .hero__net {
+    position: absolute;
+    inset: 0;
+    color: var(--accent);
+    opacity: 0.3;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to left, #000 5%, transparent 68%);
+    mask-image: linear-gradient(to left, #000 5%, transparent 68%);
+  }
+
+  :global(:root[data-theme='dark']) .hero__net {
+    opacity: 0.36;
+  }
+
   .hero__intro {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 1.75rem;
-    margin-bottom: 1.5rem;
   }
 
   .hero__identity {
@@ -115,11 +147,14 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
   .hero__portrait {
     flex: 0 0 auto;
-    width: 8.25rem;
-    height: 8.25rem;
+    width: 8.75rem;
+    height: 8.75rem;
     object-fit: cover;
-    border-radius: 14px;
-    border: 1px solid var(--border);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+    box-shadow:
+      0 0 0 2px var(--accent),
+      var(--shadow-md);
   }
 
   .hero__kicker {
@@ -158,7 +193,17 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
     background: var(--bg-subtle);
     border: 1px solid var(--border);
     border-radius: 100px;
-    padding: 0.15rem 0.7rem;
+    padding: 0.2rem 0.75rem;
+    transition:
+      color 0.18s ease,
+      border-color 0.18s ease,
+      background 0.18s ease;
+  }
+
+  .hero__interests li:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-subtle);
   }
 
   .hero__links {
@@ -167,17 +212,43 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
     border-top: 1px solid var(--border);
   }
 
+  /* `.section + .section` in global.css does not cover the hero. */
+  .hero + .section {
+    margin-top: 3.5rem;
+  }
+
   .news {
     list-style: none;
     padding: 0;
   }
 
   .news__item {
+    position: relative;
     display: grid;
     grid-template-columns: 5.5rem 1fr;
     gap: 0.75rem;
     padding-block: 0.6rem;
+    padding-left: 0.75rem;
     border-bottom: 1px solid var(--border);
+    border-radius: 6px;
+    transition: background 0.18s ease;
+  }
+
+  .news__item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 3px;
+    height: 0;
+    border-radius: 2px;
+    background: var(--accent);
+    transform: translateY(-50%);
+    transition: height 0.2s ease;
+  }
+
+  .news__item:hover::before {
+    height: 60%;
   }
 
   .news__item:last-child {
@@ -205,6 +276,11 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
   }
 
   @media (max-width: 34rem) {
+    .hero__panel {
+      padding: 1.4rem 1.25rem;
+      border-radius: 14px;
+    }
+
     .hero__intro {
       flex-direction: column-reverse;
       align-items: flex-start;
@@ -212,8 +288,8 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
     }
 
     .hero__portrait {
-      width: 6.5rem;
-      height: 6.5rem;
+      width: 7rem;
+      height: 7rem;
     }
   }
 

@@ -1,5 +1,6 @@
 ---
 import SocialLinks from './SocialLinks.astro';
+import Logo from './Logo.astro';
 import { site } from '../data/site';
 
 const year = new Date().getFullYear();
@@ -7,6 +8,9 @@ const year = new Date().getFullYear();
 
 <footer class="site-footer">
   <div class="wrap wrap--wide site-footer__inner">
+    <div class="site-footer__brand">
+      <Logo class="site-footer__logo" />
+    </div>
     <p class="site-footer__meta">
       © {year} {site.name} · Built with <a href="https://astro.build">Astro</a>,
       hosted on <a href="https://pages.github.com">GitHub Pages</a>
@@ -19,6 +23,24 @@ const year = new Date().getFullYear();
   .site-footer {
     border-top: 1px solid var(--border);
     padding-block: 1.75rem;
+  }
+
+  .site-footer__brand {
+    display: inline-flex;
+    flex: 0 0 auto;
+  }
+
+  /* Explicit width: as a flex item with no flex context of its own, the
+     SVG's aspect-derived auto width collapses to zero. 816:412 ~ 1.98:1. */
+  .site-footer__brand :global(svg) {
+    height: 0.95rem;
+    width: 1.88rem;
+    color: var(--text-faint);
+    transition: color 0.18s ease;
+  }
+
+  .site-footer__brand:hover :global(svg) {
+    color: var(--accent);
   }
 
   .site-footer__inner {

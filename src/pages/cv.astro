@@ -57,17 +57,46 @@ const summaryText =
               <li class="cv-entry">
                 <div class="cv-entry__period">{entry.period ?? ''}</div>
                 <div class="cv-entry__body">
-                  <h3 class="cv-entry__title">{entry.title}</h3>
-                  <p class="cv-entry__org">
-                    {entry.organization}
-                    {entry.location && <span class="cv-entry__loc">{entry.location}</span>}
-                  </p>
-                  {entry.details && (
-                    <ul class="cv-entry__details">
-                      {entry.details.map((detail) => (
-                        <li>{detail}</li>
-                      ))}
-                    </ul>
+                  {entry.details ? (
+                    /* Collapsed by default: the overview stays scannable and
+                       the detail is one click away. Native <details> means no
+                       JavaScript and keyboard support for free. */
+                    <details class="disclosure">
+                      <summary class="disclosure__summary">
+                        <span class="disclosure__head">
+                          <span class="cv-entry__title">{entry.title}</span>
+                          <span class="cv-entry__org">
+                            {entry.organization}
+                            {entry.location && (
+                              <span class="cv-entry__loc">{entry.location}</span>
+                            )}
+                          </span>
+                        </span>
+                        <svg
+                          class="disclosure__chevron"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          focusable="false"
+                        >
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </summary>
+                      <ul class="cv-entry__details">
+                        {entry.details.map((detail) => (
+                          <li>{detail}</li>
+                        ))}
+                      </ul>
+                    </details>
+                  ) : (
+                    <div class="disclosure__head">
+                      <span class="cv-entry__title">{entry.title}</span>
+                      <span class="cv-entry__org">
+                        {entry.organization}
+                        {entry.location && (
+                          <span class="cv-entry__loc">{entry.location}</span>
+                        )}
+                      </span>
+                    </div>
                   )}
                 </div>
               </li>
@@ -152,9 +181,76 @@ const summaryText =
     padding-top: 0.2rem;
   }
 
+  .disclosure {
+    /* Nothing here needs the default triangle; a chevron is drawn instead. */
+  }
+
+  .disclosure__summary {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    list-style: none;
+    border-radius: 6px;
+    margin: -0.3rem -0.4rem;
+    padding: 0.3rem 0.4rem;
+    transition: background 0.16s ease;
+  }
+
+  .disclosure__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .disclosure__summary:hover {
+    background: var(--bg-subtle);
+  }
+
+  .disclosure__summary:hover .cv-entry__title {
+    color: var(--accent);
+  }
+
+  .disclosure__summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .disclosure__head {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .disclosure__chevron {
+    flex: 0 0 auto;
+    width: 1.05rem;
+    height: 1.05rem;
+    margin-top: 0.2rem;
+    fill: none;
+    stroke: var(--text-faint);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition:
+      transform 0.2s ease,
+      stroke 0.16s ease;
+  }
+
+  .disclosure[open] .disclosure__chevron {
+    transform: rotate(180deg);
+  }
+
+  .disclosure__summary:hover .disclosure__chevron {
+    stroke: var(--accent);
+  }
+
   .cv-entry__title {
+    font-family: var(--font-serif);
+    font-weight: 600;
     font-size: 1.02rem;
     line-height: 1.35;
+    letter-spacing: -0.01em;
+    transition: color 0.16s ease;
   }
 
   .cv-entry__org {
@@ -170,7 +266,7 @@ const summaryText =
   }
 
   .cv-entry__details {
-    margin-top: 0.75rem;
+    margin-top: 0.8rem;
     padding-left: 1.1rem;
     font-size: 0.9rem;
     line-height: 1.7;
@@ -210,6 +306,16 @@ const summaryText =
   .cv-summary {
     font-size: 0.95rem;
     color: var(--text-muted);
+  }
+
+  @media print {
+    .disclosure__chevron {
+      display: none;
+    }
+
+    .disclosure > *:not(summary) {
+      display: block !important;
+    }
   }
 
   @media (max-width: 34rem) {

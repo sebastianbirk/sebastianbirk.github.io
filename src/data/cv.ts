@@ -40,18 +40,18 @@ export const cvSections: CvSection[] = [
         ],
       },
       {
-        period: '2026 – present',
+        period: 'Jul 2026 – present',
         title: 'Freelance Data Science Consultant',
         organization: 'GSK',
         details: ['Translational data science consulting.'],
       },
       {
-        period: '2018 – 2026',
+        period: 'Oct 2018 – Jun 2026',
         title: 'Advanced Analytics & Data Science Manager',
         organization: 'Avanade',
         location: 'Munich, Germany',
         details: [
-          'Data Science Consultant (2018), Senior Consultant (2021), Manager (2021–2026); part-time from Dec 2021.',
+          'Data Science Consultant (Oct 2018), Senior Consultant (Mar 2021), Manager (Dec 2021 – Jun 2026); part-time from Dec 2021.',
           'Azure and Databricks ML platforms for pharma; MLOps, distributed data processing and ML team leadership.',
         ],
       },
@@ -61,7 +61,7 @@ export const cvSections: CvSection[] = [
     heading: 'Education',
     entries: [
       {
-        period: '2021 – 2026',
+        period: 'Oct 2021 – 2026',
         title: 'PhD in Computational Biology / Machine Learning (thesis submitted)',
         organization: 'Technical University of Munich',
         location: 'Munich, Germany',

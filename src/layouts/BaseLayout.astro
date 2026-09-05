@@ -28,7 +28,7 @@ const {
   backdrop = false,
 } = Astro.props;
 
-const pageTitle = title ? `${title} · ${site.name}` : `${site.name} · ${site.role}`;
+const pageTitle = title ? `${title} · ${site.name}` : `${site.name} · ${site.titleTagline}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
 // Structured data so search engines and Scholar-adjacent crawlers can connect

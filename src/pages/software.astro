@@ -1,6 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { projects } from '../data/projects';
+import { fetchRepoStats, repoSlug, STAR_DISPLAY_THRESHOLD } from '../lib/github';
+
+// Resolved during the build, so the figures are current on every deploy and
+// no stale number is ever committed to the repo.
+const stats = await fetchRepoStats(
+  projects.map((p) => repoSlug(p.links.code)).filter((s): s is string => Boolean(s)),
+);
 
 const linkLabels: Record<string, string> = {
   code: 'Repository',
@@ -29,6 +36,17 @@ const linkLabels: Record<string, string> = {
           <div class="project__head">
             <h2 class="project__name">{project.name}</h2>
             {project.role && <span class="project__role">{project.role}</span>}
+            {(() => {
+              const st = stats.get(repoSlug(project.links.code) ?? '');
+              return st && st.stars >= STAR_DISPLAY_THRESHOLD ? (
+                <span class="project__stars" title={`${st.stars} GitHub stars`}>
+                  <svg viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z" />
+                  </svg>
+                  {st.stars.toLocaleString('en-GB')}
+                </span>
+              ) : null;
+            })()}
           </div>
 
           <p class="project__desc">{project.description}</p>
@@ -112,6 +130,26 @@ const linkLabels: Record<string, string> = {
   .project__role {
     font-size: 0.78rem;
     color: var(--text-faint);
+  }
+
+  .project__stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    margin-left: auto;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-muted);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.1rem 0.5rem;
+  }
+
+  .project__stars svg {
+    width: 0.78rem;
+    height: 0.78rem;
+    fill: currentColor;
   }
 
   .project__desc {

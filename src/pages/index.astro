@@ -5,10 +5,14 @@ import SocialLinks from '../components/SocialLinks.astro';
 import { site } from '../data/site';
 import { publicationsByDate } from '../data/publications';
 import { projects } from '../data/projects';
+import { fetchRepoStats, repoSlug, STAR_DISPLAY_THRESHOLD } from '../lib/github';
 import { newsByDate } from '../data/news';
 
 const selected = publicationsByDate.filter((p) => p.selected);
 const featured = projects.filter((p) => p.selected);
+const stats = await fetchRepoStats(
+  featured.map((p) => repoSlug(p.links.code)).filter((s): s is string => Boolean(s)),
+);
 const recentNews = newsByDate.slice(0, 5);
 
 const interests = [
@@ -48,9 +52,9 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
     <div class="hero__bio stack">
       <p class="lede">
-        I work at the intersection of artificial intelligence, computational
-        biology and genomics, developing machine learning methods that help us
-        understand complex biological systems.
+        I build machine learning systems that learn how human tissue is
+        organised, and make that structure usable — across spatial omics,
+        single-cell data, histology and the clinical record.
       </p>
       <p>
         I completed my PhD in Computational Biology at the Technical University
@@ -106,9 +110,17 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
       {
         featured.map((project) => (
           <li class="tool">
-            <a class="tool__name" href={project.links.code ?? '/software/'}>
-              {project.name}
-            </a>
+            <span class="tool__head">
+              <a class="tool__name" href={project.links.code ?? '/software/'}>
+                {project.name}
+              </a>
+              {(() => {
+                const st = stats.get(repoSlug(project.links.code) ?? '');
+                return st && st.stars >= STAR_DISPLAY_THRESHOLD ? (
+                  <span class="tool__stars">★ {st.stars.toLocaleString('en-GB')}</span>
+                ) : null;
+              })()}
+            </span>
             <p class="tool__desc">{project.description}</p>
             {project.role && <p class="tool__role">{project.role}</p>}
           </li>
@@ -272,6 +284,18 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
   .tool:hover::before {
     opacity: 1;
+  }
+
+  .tool__head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+
+  .tool__stars {
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-faint);
   }
 
   .tool__name {

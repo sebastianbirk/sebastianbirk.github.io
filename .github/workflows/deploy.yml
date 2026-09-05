@@ -39,6 +39,10 @@ jobs:
 
       - name: Build site
         run: npm run build
+        env:
+          # Star counts are fetched at build time; the token lifts GitHub's
+          # 60-request anonymous rate limit. Read-only, scoped to this run.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configure Pages
         uses: actions/configure-pages@v6

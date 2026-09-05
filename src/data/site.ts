@@ -9,6 +9,11 @@ export const site = {
   /** Job title. Appears in the <title> tag, hero, CV header and JSON-LD. */
   role: 'Principal Research Scientist',
   affiliation: 'Wellcome Sanger Institute',
+  /**
+   * Used for the <title> on the homepage instead of the job title. Search
+   * results and shared links lead with a capability rather than a rank.
+   */
+  titleTagline: 'Machine learning for spatial biology',
   /** Short self-description, shown as the kicker above the name. */
   tagline: '\ud83e\uddec AI \u00d7 Bio | Machine Learning Scientist & Engineer',
   description:

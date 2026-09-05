@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://sebastianbirk.github.io/sitemap-index.xml

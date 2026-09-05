@@ -4,12 +4,11 @@ import sitemap from '@astrojs/sitemap';
 
 // The canonical origin of the site. Used for sitemap, RSS and social meta tags.
 //
-// Launching on the free GitHub subdomain. When you move to a custom domain:
-//   1. change this to e.g. 'https://sebastianbirk.org'
-//   2. create public/CNAME containing just that bare hostname
-//   3. set the DNS records described in README.md
-// Nothing else in the codebase hardcodes the domain.
-const SITE = 'https://sebastianbirk.github.io';
+// Served from the custom domain, with public/CNAME telling GitHub Pages the
+// same thing so the setting survives redeploys. Canonical URLs, the sitemap,
+// the RSS feed, robots.txt and the social-card URLs all derive from this one
+// constant — nothing else in the codebase hardcodes the domain.
+const SITE = 'https://sebastianbirk.com';
 
 export default defineConfig({
   site: SITE,

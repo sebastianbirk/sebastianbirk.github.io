@@ -15,7 +15,7 @@ const authorParts = pub.authors.split(SELF);
 
 const typeLabel: Record<Publication['type'], string> = {
   journal: 'Journal',
-  proceedings: 'Conference Proceedings',
+  proceedings: 'Conference paper',
   preprint: 'Preprint',
   workshop: 'Workshop',
   abstract: 'Abstract',
@@ -31,6 +31,11 @@ const linkLabels: Record<string, string> = {
 };
 
 const links = Object.entries(pub.links ?? {}).filter(([, href]) => Boolean(href));
+
+const year = pub.date.slice(0, 4);
+// Venue names like "ICML 2026 Workshop on ..." already state the year; showing
+// the chip as well prints it twice in the same row.
+const showYear = !pub.venue.includes(year);
 ---
 
 <article class:list={['pub', compact && 'pub--compact']}>
@@ -49,7 +54,7 @@ const links = Object.entries(pub.links ?? {}).filter(([, href]) => Boolean(href)
 
   <p class="pub__venue">
     <span class="pub__venue-name">{pub.venue}</span>
-    <span class="pub__year">{pub.date.slice(0, 4)}</span>
+    {showYear && <span class="pub__year">{year}</span>}
     {!compact && <span class="pub__badge">{typeLabel[pub.type]}</span>}
   </p>
 

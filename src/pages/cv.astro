@@ -124,7 +124,7 @@ const summaryText =
 
   <section class="section">
     <h2 class="section__label">
-      Publications
+      Publications{' '}
       <a href="/publications/">Full list →</a>
     </h2>
     <p class="cv-summary">
@@ -329,8 +329,16 @@ const summaryText =
       display: none;
     }
 
+    /* Older engines hid the closed content by display; current ones
+       (Chrome 131+, Safari 18.4+, Firefox 139+) use ::details-content with
+       content-visibility, which `display` on the child cannot override. Keep
+       both so the printed CV carries its bullets either way. */
     .disclosure > *:not(summary) {
       display: block !important;
+    }
+
+    details.disclosure::details-content {
+      content-visibility: visible !important;
     }
   }
 

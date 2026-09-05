@@ -12,7 +12,7 @@ const recentNews = newsByDate.slice(0, 5);
 const interests = [
   'Spatial genomics',
   'Single-cell genomics',
-  'Generative modeling',
+  'Generative modelling',
   'Graph learning',
   'Computational biology',
 ];
@@ -51,16 +51,16 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
         those neighbourhoods do.
       </p>
       <p>
-        Principal Research Scientist in the{' '}
-        <a href="https://lotfollahi.com">Lotfollahi Lab</a> at the Wellcome Sanger
-        Institute. My PhD at Helmholtz Munich produced{' '}
-        <a href="/software/">NicheCompass</a> (<em>Nature Genetics</em>, 2025);
-        since then, foundation models for tissue — TERRA, discrete cell and niche
-        codes, and generative reconstruction of tissue from expression alone.
+        I work in the <a href="https://lotfollahi.com">Lotfollahi Lab</a> at the
+        Wellcome Sanger Institute. My PhD at Helmholtz Munich produced{' '}
+        <a href="/software/">NicheCompass</a> (<em>Nature Genetics</em>, 2025).
+        Since then I have worked on foundation models for tissue: TERRA, discrete
+        cell and niche codes, and generative reconstruction from expression alone.
       </p>
       <p>
-        Before research, I built and shipped machine learning in industry — most
-        recently as a Data &amp; AI manager at Avanade.
+        I came to research from industry and still consult there — currently on
+        machine learning for target discovery at GSK, after several years running
+        data science delivery at Avanade.
       </p>
     </div>
 
@@ -75,7 +75,7 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
   <section class="section">
     <h2 class="section__label">
-      Selected publications
+      Selected publications{' '}
       <a href="/publications/">All publications →</a>
     </h2>
     {selected.map((pub) => <PublicationEntry pub={pub} />)}
@@ -252,7 +252,8 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
   .news__text a {
     text-decoration: none;
-    border-bottom: 1px solid var(--accent-subtle);
+    /* Derived from the link colour so the affordance is not colour-alone. */
+    border-bottom: 1px solid color-mix(in srgb, currentColor 45%, transparent);
   }
 
   .news__text a:hover {

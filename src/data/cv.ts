@@ -40,7 +40,7 @@ export const cvSections: CvSection[] = [
     heading: 'Experience',
     entries: [
       {
-        period: 'Oct 2026 – present',
+        period: 'From Oct 2026',
         title: 'Principal Research Scientist',
         organization: 'Wellcome Sanger Institute',
         location: 'Cambridge, UK',
@@ -130,8 +130,8 @@ export const cvSections: CvSection[] = [
         location: 'Barcelona, Spain',
         logo: 'esade',
         details: [
-          'Best graduate of the year — GPA 9.59/10, of 40 students; ESADE Scholarship for Excellence.',
-          'Master thesis: “Topic modeling of Twitter data in tourism”.',
+          'Best graduate of the year — GPA 9.59/10, out of 40 students; ESADE Scholarship for Excellence.',
+          'MSc thesis: “Topic modeling of Twitter data in tourism”.',
         ],
       },
       {
@@ -141,7 +141,7 @@ export const cvSections: CvSection[] = [
         location: 'Tübingen, Germany',
         logo: 'tuebingen',
         details: [
-          'Best graduate of the year — GPA 1.11, of 300 students; focus on statistics, econometrics and finance.',
+          'Best graduate of the year — final grade 1.11 on the German 1.0–5.0 scale, where 1.0 is best; out of 300 students. Focus on statistics, econometrics and finance.',
           'Exchange semester at Fox School of Business, Temple University, Philadelphia (2014–2015).',
         ],
       },
@@ -210,8 +210,7 @@ export const cvSections: CvSection[] = [
     heading: 'Recognition',
     items: [
       'ESADE Scholarship for Excellence',
-      'Best Graduate of the Year — ESADE',
-      'Best Graduate of the Year — University of Tübingen',
+      'Best Graduate of the Year Prize (2017)',
       'Physics Award, German Physical Society',
       'MLP Award for Outstanding Performance',
       'Baden-Württemberg Scholarship',

@@ -141,6 +141,12 @@ const personSchema = {
     opacity: 0.4;
   }
 
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .page-backdrop {
+      opacity: 0.4;
+    }
+  }
+
   /* Content sits above the wallpaper. */
   body > :global(main),
   body > :global(footer) {
@@ -152,7 +158,9 @@ const personSchema = {
     position: absolute;
     left: -9999px;
     top: 0;
-    z-index: 10;
+    /* Must beat the sticky header's z-index: 20, or the focused link is
+       painted behind it and Tab appears to do nothing (WCAG 2.4.7). */
+    z-index: 30;
     background: var(--bg);
     color: var(--text);
     border: 1px solid var(--border-strong);

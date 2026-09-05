@@ -43,7 +43,7 @@ export const publications: Publication[] = [
     title:
       'G2T: Tissue Reconstruction from Gene Expression via Embedding-Distance Flow Matching',
     authors: 'S. Birk, F. J. Theis, M. Lotfollahi',
-    venue: 'Machine Learning in Computational Biology (MLCB) 2026',
+    venue: 'Machine Learning in Computational Biology (MLCB)',
     date: '2026-08-25',
     type: 'proceedings',
     links: {
@@ -55,7 +55,7 @@ export const publications: Publication[] = [
     title:
       'Learning Discrete Cell and Niche Codes from Spatial Transcriptomics Using Dual Residual Vector Quantization',
     authors: 'S. Birk, A. Merchant, A. Vahidi, F. J. Theis, M. Lotfollahi',
-    venue: 'Machine Learning in Computational Biology (MLCB) 2026',
+    venue: 'Machine Learning in Computational Biology (MLCB)',
     date: '2026-08-07',
     type: 'proceedings',
     links: {
@@ -146,7 +146,7 @@ export const publications: Publication[] = [
     type: 'journal',
     selected: true,
     summary:
-      'NicheCompass — a graph deep-learning method that learns interpretable cell-niche representations from spatial omics, grounded in known cell–cell communication programs.',
+      'NicheCompass — a graph deep-learning method that learns interpretable cell-niche representations from spatial omics, grounded in known spatial gene programmes for cell–cell communication, metabolism and transcriptional regulation.',
     links: {
       doi: 'https://doi.org/10.1038/s41588-025-02120-6',
       // Nature Genetics is paywalled; the preprint is the open-access route to

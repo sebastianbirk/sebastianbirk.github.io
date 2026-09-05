@@ -20,7 +20,7 @@ export const projects: Project[] = [
   {
     name: 'NicheCompass',
     description:
-      'End-to-end analysis of spatial multi-omics data. A graph variational autoencoder that learns cell-niche representations which stay interpretable, because each latent dimension is tied to a known intercellular communication program.',
+      'End-to-end analysis of spatial multi-omics data. A graph variational autoencoder that learns cell-niche representations which stay interpretable, because each latent dimension corresponds to a spatial gene programme representing a known biological process — cell–cell communication, cellular metabolism or transcriptional regulation.',
     role: 'First author and lead developer',
     tags: ['Python', 'Graph neural networks', 'Spatial omics', 'VAE'],
     links: {
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     description:
       'Separates microenvironment-induced from cell-intrinsic gene expression, so that tissue microenvironments can be both mapped and reprogrammed.',
     role: 'Co-first author',
-    tags: ['Python', 'Generative modeling', 'Spatial omics'],
+    tags: ['Python', 'Generative modelling', 'Spatial omics'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/mintflow',
       paper: 'https://doi.org/10.1101/2025.06.24.661094',

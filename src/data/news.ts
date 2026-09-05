@@ -23,7 +23,7 @@ export const news: NewsItem[] = [
     href: 'https://doi.org/10.64898/2026.08.07.743490',
   },
   {
-    date: '2026-07-29',
+    date: '2026-08-04',
     text: 'TERRA is out — a multi-scale foundation model for human tissues from spatial transcriptomics.',
     href: 'https://doi.org/10.64898/2026.07.29.741565',
   },

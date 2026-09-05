@@ -11,13 +11,15 @@
   --bg-subtle: #f4f3ef;
   --text: #16191c;
   --text-muted: #5f6672;
-  --text-faint: #6b7280;
+  --text-faint: #5b626d;
   --border: #e3e1da;
   --border-strong: #cfccc3;
   --accent: #0f6a60;
   --accent-hover: #0a4d45;
   --accent-subtle: #e6f1ef;
   --selection: #cfe6e1;
+  /* Constant light ground for organisation logos, most of which bake one in. */
+  --logo-plate: #ffffff;
 
   --accent-2: #12897c;
   --accent-glow: rgba(15, 106, 96, 0.14);
@@ -53,13 +55,14 @@
     --bg-subtle: #171b1e;
     --text: #e6e8e6;
     --text-muted: #9aa3a8;
-    --text-faint: #737d84;
+    --text-faint: #8b959c;
     --border: #262c30;
     --border-strong: #3a4247;
     --accent: #5fbfb0;
     --accent-hover: #85d4c6;
     --accent-subtle: #142a27;
     --selection: #1e4741;
+    --logo-plate: #e9eaea;
     --accent-2: #86e0d0;
     --accent-glow: rgba(95, 191, 176, 0.16);
 
@@ -79,13 +82,14 @@
   --bg-subtle: #171b1e;
   --text: #e6e8e6;
   --text-muted: #9aa3a8;
-  --text-faint: #737d84;
+  --text-faint: #8b959c;
   --border: #262c30;
   --border-strong: #3a4247;
   --accent: #5fbfb0;
   --accent-hover: #85d4c6;
   --accent-subtle: #142a27;
   --selection: #1e4741;
+  --logo-plate: #e9eaea;
 
   --accent-2: #86e0d0;
   --accent-glow: rgba(95, 191, 176, 0.16);

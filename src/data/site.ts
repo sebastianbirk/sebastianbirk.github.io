@@ -24,7 +24,9 @@ export const site = {
   tagline: '\ud83e\uddec AI \u00d7 Bio | Machine Learning Scientist & Engineer',
   description:
     'Machine learning for spatial biology: generative models and graph learning for spatial and single-cell genomics. Principal Research Scientist at the Wellcome Sanger Institute from October 2026.',
-  email: 'sb75@sanger.ac.uk',
+  // Personal address rather than the institutional one, so the site's only
+  // contact route does not depend on a current employer.
+  email: 'sebastian.birk@outlook.com',
   location: 'Cambridge, United Kingdom',
 } as const;
 
@@ -48,7 +50,7 @@ export type SocialLink = {
 export const socials: SocialLink[] = [
   {
     label: 'Email',
-    href: 'mailto:sb75@sanger.ac.uk',
+    href: 'mailto:sebastian.birk@outlook.com',
     icon: 'M1.5 5.25A2.25 2.25 0 0 1 3.75 3h16.5a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 20.25 21H3.75a2.25 2.25 0 0 1-2.25-2.25V5.25Zm2.4.75 8.1 6.075L20.1 6H3.9ZM21 7.875l-8.55 6.412a.75.75 0 0 1-.9 0L3 7.875V18.75c0 .414.336.75.75.75h16.5a.75.75 0 0 0 .75-.75V7.875Z',
   },
   {

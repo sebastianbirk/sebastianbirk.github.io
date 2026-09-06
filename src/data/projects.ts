@@ -32,7 +32,7 @@ export const projects: Project[] = [
     selected: true,
     pypi: 'nichecompass',
     description:
-      'End-to-end analysis of spatial multi-omics data. A graph deep-learning method that models cellular communication to learn cell-niche representations which stay interpretable, because each latent dimension corresponds to a spatial gene programme representing a known biological process: cell–cell communication, cellular metabolism or transcriptional regulation.',
+      'Tissues are organised into niches: local communities of cells that coordinate a shared function. NicheCompass finds those niches in spatial omics data and quantifies what holds each one together, scoring every cell for the signalling pathways it sends into and receives from its neighbourhood. It works across samples, donors and sequencing platforms, and has been run on a whole mouse brain atlas of 8.4 million cells.',
     role: 'First author and lead developer',
     tags: ['Python', 'Graph neural networks', 'Spatial omics', 'VAE'],
     links: {
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     name: 'TERRA',
     selected: true,
     description:
-      'A self-supervised foundation model for spatial transcriptomics, built on a graph transformer with a Joint-Embedding Predictive Architecture. Pretrained on 112 million cells across 20 human tissues, it learns reusable representations at gene, cell and neighbourhood scale.',
+      'Tissue works through recurring neighbourhoods of cells, and TERRA learns to represent them. Pretrained on 112 million human cells, it describes a cell, the genes it expresses and the niche around it from a single set of weights, applied zero-shot to tissue it has never seen, and predicts how that niche shifts when a gene is knocked out.',
     role: 'First author and lead developer',
     tags: ['Python', 'Foundation model', 'Graph transformer'],
     links: {
@@ -56,7 +56,7 @@ export const projects: Project[] = [
   {
     name: 'SQUINT',
     description:
-      'Discrete tokenisation for spatial transcriptomics tissue sections, learning compact cell and niche codes that support in-painting of missing tissue regions.',
+      'Rewrites a tissue section as a short list of integers per cell: what the cell is, and what surrounds it. The codes are the same vocabulary from one section to the next, so a cell type or a niche keeps the same identifier in a new sample.',
     role: 'First author on the dual residual vector quantization paper; co-author on SQUINT',
     tags: ['Python', 'Vector quantisation', 'Representation learning'],
     links: {
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     selected: true,
     pypi: 'mintflow',
     description:
-      'Separates microenvironment-induced from cell-intrinsic gene expression, so that tissue microenvironments can be both mapped and reprogrammed.',
+      'A cell’s gene expression reflects both what the cell is and where it sits. MintFlow separates the two in spatial transcriptomics data, then predicts how expression would change if the surrounding cells were deleted or replaced.',
     role: 'Co-first author',
     tags: ['Python', 'Generative modelling', 'Spatial omics'],
     links: {
@@ -80,7 +80,7 @@ export const projects: Project[] = [
   {
     name: 'G2T',
     description:
-      'Tissue reconstruction from gene expression via embedding-distance flow matching, generating spatial structure rather than only reading it.',
+      'Single-cell RNA sequencing measures what every cell is expressing, but dissociating the tissue destroys the record of where each cell sat. G2T puts the cells back from expression alone: it predicts the distance between every pair of cells, then recovers a 2-D layout from that distance matrix, so dissociated data can be handed to tools that expect spatial coordinates.',
     role: 'First author',
     tags: ['Python', 'Flow matching', 'Graph generation'],
     links: {

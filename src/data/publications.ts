@@ -46,6 +46,8 @@ export const publications: Publication[] = [
     venue: 'Machine Learning in Computational Biology (MLCB)',
     date: '2026-08-25',
     type: 'proceedings',
+    summary:
+      'Reconstructs the spatial arrangement of cells in a tissue from gene expression alone, by predicting the distance between every pair of cells and recovering coordinates from that matrix.',
     links: {
       biorxiv: 'https://doi.org/10.64898/2026.08.25.746917',
       code: 'https://github.com/Lotfollahi-lab/g2t',
@@ -58,6 +60,8 @@ export const publications: Publication[] = [
     venue: 'Machine Learning in Computational Biology (MLCB)',
     date: '2026-08-07',
     type: 'proceedings',
+    summary:
+      'Each cell receives a short tuple of integers for its own identity and for its niche, giving a vocabulary that holds across sections and lets a query sample be matched to a reference by comparing code distributions.',
     links: {
       biorxiv: 'https://doi.org/10.64898/2026.08.07.743490',
       code: 'https://github.com/Lotfollahi-lab/squint',
@@ -73,7 +77,7 @@ export const publications: Publication[] = [
     type: 'preprint',
     selected: true,
     summary:
-      'A graph-transformer foundation model that reads tissue structure from spatial transcriptomics across scales, from single cells to whole tissues.',
+      'A foundation model pretrained on 112 million human cells that represents genes, cells and their spatial neighbourhoods from a single set of weights.',
     links: {
       biorxiv: 'https://doi.org/10.64898/2026.07.29.741565',
       code: 'https://github.com/Lotfollahi-lab/terra',
@@ -86,6 +90,11 @@ export const publications: Publication[] = [
     venue: 'ICML 2026 Workshop on Graph Foundation Models',
     date: '2026-07-01',
     type: 'workshop',
+    links: {
+      pdf: 'https://openreview.net/forum?id=8Suk14rmmm',
+    },
+    summary:
+      'ST-JEPA turns a cell and its spatial neighbours into a token sequence and learns by predicting the masked parts in latent space, giving representations at gene, cell and neighbourhood resolution without hand-designed augmentations.',
   },
   {
     title: 'Hidden immune memory niches in inflammatory skin diseases',
@@ -95,6 +104,8 @@ export const publications: Publication[] = [
     venue: 'bioRxiv',
     date: '2026-03-23',
     type: 'preprint',
+    summary:
+      'A spatial atlas of around five million human skin cells uncovers immune niches inside sebaceous and sweat glands that standard histopathology does not reveal, which expand in atopic dermatitis and psoriasis and are still present twelve weeks after treatment.',
     links: {
       biorxiv: 'https://doi.org/10.64898/2026.03.20.713219',
     },
@@ -106,6 +117,8 @@ export const publications: Publication[] = [
     venue: 'ICLR 2026 Workshop on Machine Learning for Genomics Explorations',
     date: '2026-04-01',
     type: 'workshop',
+    summary:
+      'Vector quantisation of cell embeddings from a graph neural network turns a tissue into a sequence of tokens, which SQUINT then uses to fill in gene expression at spatial locations it has not seen.',
     links: {
       code: 'https://github.com/Lotfollahi-lab/squint',
     },
@@ -114,10 +127,12 @@ export const publications: Publication[] = [
     title:
       'SIGMMA: Hierarchical Graph-Based Multi-Scale Multi-modal Contrastive Alignment of Histopathology Image and Spatial Transcriptome',
     authors:
-      'D. Jeong, A. Vahidi, C. Ramírez-Suástegui, M. Moullet, K. Ly, M. V. Sanian, S. Birk, Y. Chang, A. Boxall, D. Jafree, L. Steele, V. Baskar MS, M. Haniffa, M. Lotfollahi',
+      'D. Jeong, A. Vahidi, C. Ramírez-Suástegui, M. Moullet, K. Ly, M. V. Sanian, S. Birk, Y. Chang, A. Boxall, D. Jafree, L. Steele, V. Baskar, M. Haniffa, M. Lotfollahi',
     venue: 'arXiv',
     date: '2025-11-19',
     type: 'preprint',
+    summary:
+      'Aligns haematoxylin and eosin tissue images with spatial transcriptomic profiles at several scales at once, so the shared representation reflects individual cells and their arrangement rather than only the whole image tile.',
     links: {
       arxiv: 'https://arxiv.org/abs/2511.15464',
     },
@@ -131,7 +146,7 @@ export const publications: Publication[] = [
     type: 'preprint',
     selected: true,
     summary:
-      'Disentangles the gene expression a cell owes to its microenvironment from what is intrinsic to it, making tissue niches something you can steer rather than only observe.',
+      'Separates the gene expression a cell owes to its microenvironment from the expression intrinsic to it, so that a microenvironment can be perturbed in silico rather than only described.',
     links: {
       biorxiv: 'https://doi.org/10.1101/2025.06.24.661094',
       code: 'https://github.com/Lotfollahi-lab/mintflow',
@@ -146,7 +161,7 @@ export const publications: Publication[] = [
     type: 'journal',
     selected: true,
     summary:
-      'NicheCompass: a graph deep-learning method that learns interpretable cell-niche representations from spatial omics, grounded in known spatial gene programmes for cell–cell communication, metabolism and transcriptional regulation.',
+      'A graph deep-learning method that identifies cell niches in spatial omics data and quantifies the communication pathways that define them.',
     links: {
       doi: 'https://doi.org/10.1038/s41588-025-02120-6',
       // Nature Genetics is paywalled; the preprint is the open-access route to

@@ -142,8 +142,14 @@ export const cvSections: CvSection[] = [
         logo: 'tuebingen',
         details: [
           'Best graduate of the year — final grade 1.11 on the German 1.0–5.0 scale, where 1.0 is best; out of 300 students. Focus on statistics, econometrics and finance.',
-          'Exchange semester at Fox School of Business, Temple University, Philadelphia (2014–2015).',
         ],
+      },
+      {
+        period: 'Aug 2014 – Jan 2015',
+        title: 'Exchange semester',
+        organization: 'Fox School of Business, Temple University',
+        location: 'Philadelphia, USA',
+        logo: 'temple',
       },
     ],
   },

@@ -44,7 +44,7 @@ export const publications: Publication[] = [
       'G2T: Tissue Reconstruction from Gene Expression via Embedding-Distance Flow Matching',
     authors: 'S. Birk, F. J. Theis, M. Lotfollahi',
     venue: 'Machine Learning in Computational Biology (MLCB)',
-    date: '2026-08-25',
+    date: '2026-08-28',
     type: 'proceedings',
     summary:
       'Reconstructs the spatial arrangement of cells in a tissue from gene expression alone, by predicting the distance between every pair of cells and recovering coordinates from that matrix.',
@@ -58,7 +58,7 @@ export const publications: Publication[] = [
       'Learning Discrete Cell and Niche Codes from Spatial Transcriptomics Using Dual Residual Vector Quantization',
     authors: 'S. Birk, A. Merchant, A. Vahidi, F. J. Theis, M. Lotfollahi',
     venue: 'Machine Learning in Computational Biology (MLCB)',
-    date: '2026-08-07',
+    date: '2026-08-13',
     type: 'proceedings',
     summary:
       'Each cell receives a short tuple of integers for its own identity and for its niche, giving a vocabulary that holds across sections and lets a query sample be matched to a reference by comparing code distributions.',
@@ -73,7 +73,7 @@ export const publications: Publication[] = [
     authors:
       'S. Birk, M. V. Sanian, A. Vahidi, S. Ogden, D. J. Jafree, A. Miraki Feriz, et al.',
     venue: 'bioRxiv',
-    date: '2026-07-29',
+    date: '2026-08-04',
     type: 'preprint',
     selected: true,
     summary:
@@ -142,7 +142,7 @@ export const publications: Publication[] = [
     authors:
       'A. Akbarnejad, L. Steele, D. J. Jafree, S. Birk, M. R. Sallese, K. Rademaker, A. Boxall, B. Rumney, C. Tudor, M. Patel, M. Prete, S. Makarchuk, C. Y. C. Lee, J. Maaskola, T. Li, H. Stanley, A. R. Foster, K. Roberts, A. L. Trinh, C. E. Villa, G. Testa, S. Mahil, A. Mehrjou, C. Smith, S. Vakili, M. R. Clatworthy, T. Mitchell, O. A. Bayraktar, M. Haniffa, M. Lotfollahi',
     venue: 'bioRxiv',
-    date: '2025-06-24',
+    date: '2025-06-26',
     type: 'preprint',
     selected: true,
     summary:

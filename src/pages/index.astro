@@ -13,7 +13,7 @@ const featured = projects.filter((p) => p.selected);
 const stats = await fetchRepoStats(
   featured.map((p) => repoSlug(p.links.code)).filter((s): s is string => Boolean(s)),
 );
-const recentNews = newsByDate.slice(0, 5);
+const recentNews = newsByDate;
 
 const interests = [
   '🧬 Generative & foundation models for biology',
@@ -25,6 +25,7 @@ const interests = [
 ];
 
 const dateFormat = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
   month: 'short',
   year: 'numeric',
   timeZone: 'UTC',
@@ -351,7 +352,7 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
   .news__item {
     position: relative;
     display: grid;
-    grid-template-columns: 5.5rem 1fr;
+    grid-template-columns: 7rem 1fr;
     gap: 0.75rem;
     padding-block: 0.6rem;
     padding-left: 0.75rem;

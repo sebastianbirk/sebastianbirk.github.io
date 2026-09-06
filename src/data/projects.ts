@@ -23,6 +23,13 @@ export interface Project {
     code?: string;
     docs?: string;
     paper?: string;
+    /**
+     * Published model weights, e.g. a Hugging Face model page. The lab's HF
+     * org (huggingface.co/lotfollahi-lab) exists but has nothing public yet,
+     * so no project sets this. Populate it once weights are released; the
+     * card renders a "Model" link automatically.
+     */
+    model?: string;
   };
 }
 
@@ -50,6 +57,8 @@ export const projects: Project[] = [
     tags: ['Python', 'Foundation model', 'Graph transformer'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/terra',
+      // NOT terra.readthedocs.io, which is an unrelated project.
+      docs: 'https://terra-st.readthedocs.io/',
       paper: 'https://doi.org/10.64898/2026.07.29.741565',
     },
   },
@@ -74,6 +83,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Generative modelling', 'Spatial omics'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/mintflow',
+      docs: 'https://mintflow.readthedocs.io/',
       paper: 'https://doi.org/10.1101/2025.06.24.661094',
     },
   },

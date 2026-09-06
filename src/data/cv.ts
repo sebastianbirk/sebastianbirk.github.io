@@ -3,7 +3,7 @@
  *
  * Deliberately omitted: date of birth, home address, phone number and personal
  * email. They belong on a CV sent to a named recipient, not on a public page.
- * Test scores (GMAT/TOEFL) are left out too — they read oddly on a research
+ * Test scores (GMAT/TOEFL) are left out too, since they read oddly on a research
  * homepage.
  *
  * Two kinds of section: dated `entries`, and flat `items` for things that need
@@ -16,7 +16,7 @@ export interface CvEntry {
   title: string;
   organization: string;
   location?: string;
-  /** One idea per line — they read better than packed sentences. */
+  /** One idea per line; they read better than packed sentences. */
   details?: string[];
   /**
    * Basename of a file in `public/logos/`, without extension. When absent, a
@@ -46,7 +46,7 @@ export const cvSections: CvSection[] = [
         location: 'Cambridge, UK',
         logo: 'sanger',
         details: [
-          'Lotfollahi Lab — generative models and graph learning for spatial genomics.',
+          'Lotfollahi Lab: generative models and graph learning for spatial genomics.',
         ],
       },
       {
@@ -130,7 +130,7 @@ export const cvSections: CvSection[] = [
         location: 'Barcelona, Spain',
         logo: 'esade',
         details: [
-          'Best graduate of the year — GPA 9.59/10, out of 40 students; ESADE Scholarship for Excellence.',
+          'Best graduate of the year: GPA 9.59/10, out of 40 students; ESADE Scholarship for Excellence.',
           'MSc thesis: “Topic modeling of Twitter data in tourism”.',
         ],
       },
@@ -141,7 +141,7 @@ export const cvSections: CvSection[] = [
         location: 'Tübingen, Germany',
         logo: 'tuebingen',
         details: [
-          'Best graduate of the year — final grade 1.11 on the German 1.0–5.0 scale, where 1.0 is best; out of 300 students. Focus on statistics, econometrics and finance.',
+          'Best graduate of the year: final grade 1.11 on the German 1.0–5.0 scale, where 1.0 is best; out of 300 students. Focus on statistics, econometrics and finance.',
         ],
       },
       {

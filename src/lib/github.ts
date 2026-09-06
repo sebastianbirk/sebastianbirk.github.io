@@ -39,14 +39,14 @@ async function fetchOne(slug: string): Promise<[string, RepoStats] | null> {
       signal: AbortSignal.timeout(10_000),
     });
     if (!res.ok) {
-      console.warn(`[github] ${slug}: HTTP ${res.status} — omitting stats`);
+      console.warn(`[github] ${slug}: HTTP ${res.status}, omitting stats`);
       return null;
     }
     const data = (await res.json()) as { stargazers_count?: number; forks_count?: number };
     if (typeof data.stargazers_count !== 'number') return null;
     return [slug, { stars: data.stargazers_count, forks: data.forks_count ?? 0 }];
   } catch (err) {
-    console.warn(`[github] ${slug}: ${(err as Error).message} — omitting stats`);
+    console.warn(`[github] ${slug}: ${(err as Error).message}, omitting stats`);
     return null;
   }
 }
@@ -63,7 +63,7 @@ export async function fetchRepoStats(slugs: string[]): Promise<Map<string, RepoS
 
 /**
  * Below this, a star count reads as weak rather than as evidence, so the figure
- * is omitted. The repository is linked either way — nothing is concealed, the
+ * is omitted. The repository is linked either way; nothing is concealed, the
  * number just is not used as a selling point.
  */
 export const STAR_DISPLAY_THRESHOLD = 10;

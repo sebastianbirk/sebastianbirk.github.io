@@ -59,7 +59,7 @@ const personSchema = {
     <link
       rel="alternate"
       type="application/rss+xml"
-      title={`${site.name} — Blog`}
+      title={`${site.name} · Blog`}
       href="/rss.xml"
     />
 
@@ -94,7 +94,7 @@ const personSchema = {
             document.documentElement.dataset.theme = stored;
           }
         } catch {
-          /* Storage unavailable — fall back to the OS preference. */
+          /* Storage unavailable; fall back to the OS preference. */
         }
       })();
     </script>

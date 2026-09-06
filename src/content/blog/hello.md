@@ -7,9 +7,9 @@ tags: ['meta']
 
 This is the first post on the rebuilt version of my site. The old one ran on
 WordPress and had not been touched since 2021, when I was still writing about
-Azure MLOps. Since then my work has moved to spatial omics — a doctorate on the
-subject, and a research role at the Wellcome Sanger Institute starting this October — so the site
-needed to say something rather different.
+Azure MLOps. Since then my work has moved to spatial omics: a doctorate on the
+subject, and a research role at the Wellcome Sanger Institute starting this
+October. So the site needed to say something rather different.
 
 ## What it runs on
 
@@ -20,7 +20,7 @@ admin panel. Posts are plain Markdown.
 
 ## What I plan to write
 
-Mostly notes adjacent to the papers — the parts that do not survive the journey
+Mostly notes adjacent to the papers, the parts that do not survive the journey
 into a methods section:
 
 - design decisions in graph models for tissue, and the ones that did not work

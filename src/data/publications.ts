@@ -1,7 +1,7 @@
 /**
  * Publication list.
  *
- * Ordering is handled automatically by `date` (newest first) — just add new
+ * Ordering is handled automatically by `date` (newest first), so just add new
  * entries anywhere in the array. Set `selected: true` to surface an entry in
  * the "Selected publications" block on the homepage.
  *
@@ -146,7 +146,7 @@ export const publications: Publication[] = [
     type: 'journal',
     selected: true,
     summary:
-      'NicheCompass — a graph deep-learning method that learns interpretable cell-niche representations from spatial omics, grounded in known spatial gene programmes for cell–cell communication, metabolism and transcriptional regulation.',
+      'NicheCompass: a graph deep-learning method that learns interpretable cell-niche representations from spatial omics, grounded in known spatial gene programmes for cell–cell communication, metabolism and transcriptional regulation.',
     links: {
       doi: 'https://doi.org/10.1038/s41588-025-02120-6',
       // Nature Genetics is paywalled; the preprint is the open-access route to

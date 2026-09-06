@@ -1,5 +1,5 @@
 /**
- * Research software. Ordered as listed — put the flagship work first.
+ * Research software. Ordered as listed; put the flagship work first.
  */
 
 export interface Project {
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     selected: true,
     pypi: 'nichecompass',
     description:
-      'End-to-end analysis of spatial multi-omics data. A graph deep-learning method that models cellular communication to learn cell-niche representations which stay interpretable, because each latent dimension corresponds to a spatial gene programme representing a known biological process — cell–cell communication, cellular metabolism or transcriptional regulation.',
+      'End-to-end analysis of spatial multi-omics data. A graph deep-learning method that models cellular communication to learn cell-niche representations which stay interpretable, because each latent dimension corresponds to a spatial gene programme representing a known biological process: cell–cell communication, cellular metabolism or transcriptional regulation.',
     role: 'First author and lead developer',
     tags: ['Python', 'Graph neural networks', 'Spatial omics', 'VAE'],
     links: {
@@ -80,7 +80,7 @@ export const projects: Project[] = [
   {
     name: 'G2T',
     description:
-      'Tissue reconstruction from gene expression via embedding-distance flow matching — generating spatial structure rather than only reading it.',
+      'Tissue reconstruction from gene expression via embedding-distance flow matching, generating spatial structure rather than only reading it.',
     role: 'First author',
     tags: ['Python', 'Flow matching', 'Graph generation'],
     links: {

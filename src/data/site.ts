@@ -23,7 +23,7 @@ export const site = {
   /** Short self-description, shown as the kicker above the name. */
   tagline: '\ud83e\uddec AI \u00d7 Bio | Machine Learning Scientist & Engineer',
   description:
-    'Machine learning for spatial biology — generative models and graph learning for spatial and single-cell genomics. Principal Research Scientist at the Wellcome Sanger Institute from October 2026.',
+    'Machine learning for spatial biology: generative models and graph learning for spatial and single-cell genomics. Principal Research Scientist at the Wellcome Sanger Institute from October 2026.',
   email: 'sb75@sanger.ac.uk',
   location: 'Cambridge, United Kingdom',
 } as const;

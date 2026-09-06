@@ -20,7 +20,10 @@ export interface Project {
   pypi?: string;
   tags: string[];
   links: {
+    /** The implementation repository. */
     code?: string;
+    /** The separate repository holding the manuscript's analyses. */
+    repro?: string;
     docs?: string;
     paper?: string;
     /**
@@ -44,6 +47,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Graph neural networks', 'Spatial omics', 'VAE'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/nichecompass',
+      repro: 'https://github.com/Lotfollahi-lab/nichecompass-reproducibility',
       docs: 'https://nichecompass.readthedocs.io/',
       paper: 'https://doi.org/10.1038/s41588-025-02120-6',
     },
@@ -57,6 +61,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Foundation model', 'Graph transformer'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/terra',
+      repro: 'https://github.com/Lotfollahi-lab/terra-reproducibility',
       // NOT terra.readthedocs.io, which is an unrelated project.
       docs: 'https://terra-st.readthedocs.io/',
       paper: 'https://doi.org/10.64898/2026.07.29.741565',
@@ -70,6 +75,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Vector quantisation', 'Representation learning'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/squint',
+      repro: 'https://github.com/Lotfollahi-lab/squint-reproducibility',
       paper: 'https://doi.org/10.64898/2026.08.07.743490',
     },
   },
@@ -83,6 +89,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Generative modelling', 'Spatial omics'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/mintflow',
+      repro: 'https://github.com/Lotfollahi-lab/mintflow-reproducibility',
       docs: 'https://mintflow.readthedocs.io/',
       paper: 'https://doi.org/10.1101/2025.06.24.661094',
     },
@@ -95,6 +102,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Flow matching', 'Graph generation'],
     links: {
       code: 'https://github.com/Lotfollahi-lab/g2t',
+      repro: 'https://github.com/Lotfollahi-lab/g2t-reproducibility',
       paper: 'https://doi.org/10.64898/2026.08.25.746917',
     },
   },

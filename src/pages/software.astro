@@ -10,11 +10,15 @@ const stats = await fetchRepoStats(
 );
 
 const linkLabels: Record<string, string> = {
-  code: 'Repository',
+  code: 'Code',
+  repro: 'Reproducibility',
   docs: 'Documentation',
   paper: 'Paper',
-  model: 'Model',
+  model: 'Model weights',
 };
+
+/** Fixed order, so every card lists its links the same way. */
+const LINK_ORDER = ['code', 'repro', 'docs', 'model', 'paper'];
 ---
 
 <BaseLayout
@@ -59,11 +63,11 @@ const linkLabels: Record<string, string> = {
           </ul>
 
           <p class="project__links">
-            {Object.entries(project.links)
-              .filter(([, href]) => Boolean(href))
-              .map(([key, href]) => (
-                <a href={href}>{linkLabels[key] ?? key}</a>
-              ))}
+            {LINK_ORDER.filter((k) => project.links[k as keyof typeof project.links]).map((key) => (
+              <a href={project.links[key as keyof typeof project.links]}>
+                {linkLabels[key] ?? key}
+              </a>
+            ))}
           </p>
         </article>
       ))

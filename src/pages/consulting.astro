@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+/**
+ * Every claim here is backed by the CV: the GSK engagement, seven years of
+ * consulting at Avanade, the Azure Databricks platform work for a large
+ * pharmaceutical company, the ASG MLOps offering, and the doctorate. Nothing
+ * describes a service with no engagement behind it.
+ */
+const areas = [
+  {
+    title: 'Machine learning for target discovery',
+    body: 'Applying representation learning and generative models to omics data to help prioritise and validate targets. This is the work I do with GSK.',
+  },
+  {
+    title: 'Spatial and single-cell genomics',
+    body: 'Method selection, analysis design and interpretation for spatial transcriptomics and single-cell data, including niche identification, cell-cell communication and multi-sample integration.',
+  },
+  {
+    title: 'Foundation models for biological data',
+    body: 'Pretraining, adapting and evaluating foundation models on omics data, and judging honestly where they earn their cost against a simpler baseline.',
+  },
+  {
+    title: 'Research models into production',
+    body: 'Taking a model from a notebook to something a team can run: pipelines, MLOps, and platform work on Azure and Databricks.',
+  },
+];
+---
+
+<BaseLayout
+  title="Consulting"
+  description="Freelance machine learning consulting for pharma and biotech: target discovery, spatial and single-cell genomics, foundation models, and getting research models into production."
+>
+  <div class="page-header">
+    <h1>Consulting</h1>
+    <p>
+      I take on a small number of freelance engagements alongside research,
+      working with pharma and biotech teams on machine learning for biological
+      data. Currently working with GSK on target discovery.
+    </p>
+  </div>
+
+  <section class="section">
+    <h2 class="section__label">What I work on</h2>
+    <ul class="areas">
+      {
+        areas.map((area) => (
+          <li class="area">
+            <h3 class="area__title">{area.title}</h3>
+            <p class="area__body">{area.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2 class="section__label">Background</h2>
+    <div class="stack prose-block">
+      <p>
+        Before and alongside the doctorate I spent seven years in data science
+        consulting, most recently as an Advanced Analytics and Data Science Manager at Avanade. That
+        included designing an Azure Databricks data science platform for one of
+        the largest pharmaceutical companies, leading a team of ML engineers
+        building production machine learning in Azure, and starting an MLOps
+        practice across Avanade Germany, Austria and Switzerland.
+      </p>
+      <p>
+        The research side is a PhD in computational biology at Helmholtz Munich
+        and the Technical University of Munich, first-authored work in{' '}
+        <em>Nature Genetics</em>, and several open-source tools that other groups
+        run. What I bring is the combination: methods that stand up to review,
+        and systems that survive contact with real data.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section__label">Get in touch</h2>
+    <p class="contact">
+      If you have a problem in this territory, write to me at{' '}
+      <a href={`mailto:${site.email}`}>{site.email}</a>. I am happy to say when
+      something is outside what I can usefully help with.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .areas {
+    display: grid;
+    gap: 1.25rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .area {
+    position: relative;
+    padding-left: 0.9rem;
+  }
+
+  .area::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.35rem;
+    bottom: 0.2rem;
+    width: 3px;
+    border-radius: 2px;
+    background: linear-gradient(var(--accent), var(--accent-2));
+    opacity: 0.55;
+  }
+
+  .area__title {
+    font-size: 1.05rem;
+  }
+
+  .area__body {
+    margin-top: 0.3rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 44rem;
+  }
+
+  .prose-block {
+    max-width: 44rem;
+    color: var(--text-muted);
+  }
+
+  .contact {
+    max-width: 44rem;
+    color: var(--text-muted);
+  }
+</style>

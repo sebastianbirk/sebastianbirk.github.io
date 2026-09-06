@@ -36,6 +36,7 @@ export const nav = [
   // and the papers below them do the credentialing.
   { href: '/software/', label: 'Software' },
   { href: '/publications/', label: 'Publications' },
+  { href: '/consulting/', label: 'Consulting' },
   { href: '/cv/', label: 'CV' },
   { href: '/blog/', label: 'Blog' },
 ] as const;
